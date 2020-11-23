@@ -9,7 +9,7 @@
 static Espnow espnow;
 static uint16_t distance[360], oldDisX[360], oldDisY[360];
 static uint8_t led[5] = {0x03, 0x03, 0x03, 0x03, 0x03};
-static uint azimuthAngle;
+uint azimuthAngle;
 static KeyBoard keyboard;
 
 uint8_t dataTankTurnMode[3] = {0, 0, 0};
@@ -49,6 +49,8 @@ void motorControlMecanumMode(uint8_t speedDirectionX, uint8_t speedDirectionY) {
 int getDistance(int angle) {
   return angle >= 8 ? distance[angle - 8] : distance[angle + 352];
 }
+
+int getAzimuthAngle() { return azimuthAngle; }
 
 void OnDataRecv(const uint8_t *mac_addr, const uint8_t *data, int data_len) {
   if (espnow.OnRemotRecv(mac_addr, data, data_len)) {
