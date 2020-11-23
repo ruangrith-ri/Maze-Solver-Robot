@@ -61,8 +61,8 @@ void OnDataRecv(const uint8_t *mac_addr, const uint8_t *data, int data_len) {
       j = data[4 * i] * 256 + data[4 * i + 1];
       distance[j] = data[4 * i + 2] * 256 + data[4 * i + 3];
     }
-  } else if (data_len == 1) {
-    azimuthAngle = data[0];
+  } else if (data_len == 2) {
+    azimuthAngle = data[1] << 8 | data[0];
   }
 }
 

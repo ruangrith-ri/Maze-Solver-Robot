@@ -10,7 +10,7 @@
 static Espnow espnow;
 static uint16_t distance[360], oldDisX[360], oldDisY[360];
 static uint8_t led[5] = {0x03, 0x03, 0x03, 0x03, 0x03};
-static uint azimuthAngle;
+static uint8_t azimuthAngle;
 static KeyBoard keyboard;
 
 uint8_t dataTankTurnMode[3] = {0, 0, 0};
@@ -62,8 +62,8 @@ void OnDataRecv(const uint8_t *mac_addr, const uint8_t *data, int data_len) {
       j = data[4 * i] * 256 + data[4 * i + 1];
       distance[j] = data[4 * i + 2] * 256 + data[4 * i + 3];
     }
-  } else if (data_len == 1) {
-    azimuthAngle = data[0];
+  } else if (data_len == 2) {
+    azimuthAngle = data[1] << 8 | data[0];
   }
 }
 
