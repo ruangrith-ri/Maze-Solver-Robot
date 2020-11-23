@@ -10,6 +10,7 @@
 static Espnow espnow;
 static uint16_t distance[360], oldDisX[360], oldDisY[360];
 static uint8_t led[5] = {0x03, 0x03, 0x03, 0x03, 0x03};
+static uint azimuthAngle;
 static KeyBoard keyboard;
 
 uint8_t dataTankTurnMode[3] = {0, 0, 0};
@@ -61,6 +62,8 @@ void OnDataRecv(const uint8_t *mac_addr, const uint8_t *data, int data_len) {
       j = data[4 * i] * 256 + data[4 * i + 1];
       distance[j] = data[4 * i + 2] * 256 + data[4 * i + 3];
     }
+  } else if (data_len == 1) {
+    azimuthAngle = data[0];
   }
 }
 
@@ -102,6 +105,11 @@ void analogControl() {
 }
 
 void displayCarInfo() {
+  M5.Lcd.setCursor(0, 0, 2);
+  M5.Lcd.print("Azimuth : ");
+  M5.Lcd.print(azimuthAngle);
+  M5.Lcd.print("     ");
+
   M5.Lcd.setCursor(0, 20, 2);
   M5.Lcd.print("E : ");
   M5.Lcd.print(getDistance(269 - 90));
