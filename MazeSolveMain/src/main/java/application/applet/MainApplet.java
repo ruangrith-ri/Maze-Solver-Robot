@@ -6,6 +6,7 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import processing.core.PApplet;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 
@@ -52,20 +53,24 @@ public class MainApplet extends PApplet {
         comPort.setBaudRate(115200);
         comPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0);
 
+
         x();
     }
 
     void x() {
+
         HashMap<String, String> buffer = new HashMap<>();
 
-        try {
-            InputStream stream = comPort.getInputStream();
-            comPort.clearBreak();
-            char charTemp;
-            StringBuilder stringTemp = new StringBuilder();
 
-            for (int j = 0; j < 5000; ++ j) {
+        InputStream stream = comPort.getInputStream();
+        comPort.clearBreak();
+        char charTemp;
+        StringBuilder stringTemp = new StringBuilder();
+
+        try {
+            for (int j = 0; j < 5000; ++j) {
                 charTemp = ((char) stream.read());
+
 
                 if (charTemp == '[') {
                     stringTemp.setLength(0);
@@ -73,21 +78,19 @@ public class MainApplet extends PApplet {
                 } else if (charTemp == ']') {
                     stringTemp.append(charTemp);
 
-                    try{
-                        String topic = match(stringTemp.toString(),"(?<=\\[).+?(?=\\:)")[0];
-                        String content = match(stringTemp.toString(),"(?<=\\:).+?(?=\\])")[0];
+                    String topic = match(stringTemp.toString(), "(?<=\\[).+?(?=\\:)")[0];
+                    String content = match(stringTemp.toString(), "(?<=\\:).+?(?=\\])")[0];
 
-                        System.out.println("topic: " + topic + "\t  content: " + content);
+                    System.out.println("topic: " + topic + "\t  content: " + content);
 
-                        buffer.put(topic,content);
-                    } catch (Exception ignored) {
-                    }
+                    buffer.put(topic, content);
                 } else {
                     stringTemp.append(charTemp);
                 }
             }
             stream.close();
-        } catch (Exception e) {
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

@@ -10,19 +10,24 @@ public class SerialService {
     SerialPort comPort;
     InputStream stream;
 
-    HashMap buffer = new HashMap();
+    HashMap<String, String> buffer = new HashMap<>();
 
     public SerialService(String portName) {
         comPort = SerialPort.getCommPort(portName);
 
-        stream = comPort.getInputStream();
+        init();
     }
 
     public SerialService(String portName, int baudRate) {
         comPort = SerialPort.getCommPort(portName);
         comPort.setBaudRate(baudRate);
 
+        init();
+    }
+
+    private void init(){
         stream = comPort.getInputStream();
+        comPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0);
     }
 
     public SerialService open() {
