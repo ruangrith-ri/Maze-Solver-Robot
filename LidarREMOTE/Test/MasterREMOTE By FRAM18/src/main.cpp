@@ -2,7 +2,7 @@
 #include "HashMap.h"
 
 /*----------------------------TEST JEENO----------------------------------*/
-const byte HASH_SIZE = 10;
+const unsigned int HASH_SIZE = 512;
 // storage
 static HashMap<String, String, HASH_SIZE> hashMap =
     HashMap<String, String, HASH_SIZE>();
@@ -36,6 +36,8 @@ void setup() {
   Serial.println(b);
   Serial.println("----");
   Serial.println(c);
+
+  Serial.println(Bus.getX());
   /*-----------------------------TEST JEENO----------------------------------*/
 }
 

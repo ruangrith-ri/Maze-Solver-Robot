@@ -2,6 +2,7 @@
 #include <M5Stack.h>
 #include <esp_now.h>
 
+#include "FRAM_18_EventBus.hpp"
 #include "espnow.h"
 #include "keyboard.h"
 #include "logo.h"
