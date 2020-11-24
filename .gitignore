@@ -10,3 +10,19 @@ MazeSolveMain/.idea/
 PC/Main/MazeSolveMain/.idea/
 
 PC/Main/MazeSolveMain/.gradle/
+
+PC/Main/Solver/.gradle/
+
+PC/Main/Solver/.idea/
+
+PC/Main/Solver/build/
+
+PC/Main/Solver/gradle/
+
+PC/Unit Test/testButton/.idea/
+
+PC/Unit Test/testButton/build/
+
+PC/Unit Test/testButton/.gradle/
+
+PC/Unit Test/testButton/gradle/

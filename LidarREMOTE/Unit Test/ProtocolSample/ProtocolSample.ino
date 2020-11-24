@@ -4,7 +4,6 @@ void setup() {
 }
 int i = 0;
 void loop() {
-  /*
   Serial.print("[A:123]");
   Serial.print("[B:456]");
   Serial.print("[C:789]");
@@ -13,6 +12,6 @@ void loop() {
 
   Serial.print("[E:200]");
   Serial.print("[F:300]");
-  Serial.print("[G:400]");*/
+  Serial.print("[G:400]");
   Serial.print("[999:" + String(i++) + "]");
 }

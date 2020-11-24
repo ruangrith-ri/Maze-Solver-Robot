@@ -1,11 +1,10 @@
 #include "FRAM_18_Remote.hpp"
-#include "HashMap.h"
 
 /*----------------------------TEST JEENO----------------------------------*/
-const unsigned int HASH_SIZE = 512;
+// const unsigned int HASH_SIZE = 512;
 // storage
-static HashMap<String, String, HASH_SIZE> hashMap =
-    HashMap<String, String, HASH_SIZE>();
+// static HashMap<String, String, HASH_SIZE> hashMap =
+// HashMap<String, String, HASH_SIZE>();
 /*----------------------------TEST JEENO----------------------------------*/
 
 void setup() {
@@ -16,34 +15,44 @@ void setup() {
 
   M5.Lcd.fillScreen(TFT_BLACK);
 
-  keyboard.Init();
-  espnow.RemoteInit();
-  esp_now_register_recv_cb(OnDataRecv);
-
+  setEspNowTask();
   beepBeep();
 
   /*----------------------------TEST JEENO----------------------------------*/
-  hashMap["name"] = "N";
-  hashMap["test"] = (String)200;
 
-  String a = hashMap["name"];
-  int b = hashMap["test"].toInt();
-  String c = hashMap["test"];
+  setSerial();
+  /*
+    hashMap["name"] = "N";
+    hashMap["test"] = (String)200;
 
-  Serial.println("----");
-  Serial.println(a);
-  Serial.println("----");
-  Serial.println(b);
-  Serial.println("----");
-  Serial.println(c);
+    String a = hashMap["name"];
+    int b = hashMap["test"].toInt();
+    String c = hashMap["test"];
 
-  Serial.println(Bus.getX());
+    Serial.println("----");
+    Serial.println(a);
+    Serial.println("----");
+    Serial.println(b);
+    Serial.println("----");
+    Serial.println(c);
+
+    Serial.println(serialBus.getX());
+    */
   /*-----------------------------TEST JEENO----------------------------------*/
 }
 
+int i = 0;
+
 void loop() {
-  analogControl();
-  displayCarInfo();
-  MapDisplay();
-  flashLED();
+  //  Serial.println("[" + String(i) + ":" + String(distance[i]) + "]");
+
+  Serial.println("[A:N]");
+  Serial.println("[B:456]");
+  Serial.println("[C:789]");
+  Serial.println("[D:500]");
+
+  Serial.println("[E:200]");
+  Serial.println("[F:300]");
+  Serial.println("[G:400]");
+  Serial.println("[H:" + String(i++) + "]");
 }

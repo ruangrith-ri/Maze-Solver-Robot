@@ -10,7 +10,7 @@
 static Espnow espnow;
 static uint16_t distance[360], oldDisX[360], oldDisY[360];
 static uint8_t led[5] = {0x03, 0x03, 0x03, 0x03, 0x03};
-uint8_t azimuthAngle;
+int azimuthAngle;
 static KeyBoard keyboard;
 
 uint8_t dataTankTurnMode[3] = {0, 0, 0};
@@ -139,3 +139,23 @@ int getAnalogY() { return keyboard.getAnalogY(); }
                String(distance[179]) + +"\t\tD225: " + String(distance[224]) +
                "\t\tD270: " + String(distance[269]) +
                +"\t\tD315: " + String(distance[314]));*/
+
+TaskHandle_t espNowTask;
+
+void espNowTaskRunner(void *pvParameters) {
+  keyboard.Init();
+  espnow.RemoteInit();
+  esp_now_register_recv_cb(OnDataRecv);
+
+  while (1) {
+    analogControl();
+    displayCarInfo();
+    MapDisplay();
+    flashLED();
+  }
+}
+
+void setEspNowTask() {
+  xTaskCreatePinnedToCore(espNowTaskRunner, "espNowTask", 30000, NULL, 1,
+                          &espNowTask, 1);
+}
