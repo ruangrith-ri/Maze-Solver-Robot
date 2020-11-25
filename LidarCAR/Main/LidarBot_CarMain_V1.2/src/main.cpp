@@ -15,7 +15,6 @@ AccessService service;
 
 extern const unsigned char gImage_logo[];
 
-void Service(void *pvParameters);
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status);
 void OnDataRecv(const uint8_t *mac_addr, const uint8_t *data, int data_len);
 
@@ -37,28 +36,11 @@ void setup() {
   esp_now_register_recv_cb(OnDataRecv);
   esp_now_register_send_cb(OnDataSent);
 
-  //! service
-  // service.Init();
-
   M5.Lcd.setCursor(240, 220, 2);
   M5.Lcd.printf("mode");
 
   //! Motor
   lidarcar.Init();
-
-  //! Camrea
-  // i2c.master_start();
-
-  //! Service
-  // xTaskCreatePinnedToCore(Service, "Service", 40960, NULL, 5, NULL, 0);
-}
-
-void Service(void *pvParameters) {
-  for (;;) {
-    service.Listen();
-    vTaskDelay(2 / portTICK_RATE_MS);
-  }
-  vTaskDelete(NULL);
 }
 
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {}
@@ -96,7 +78,7 @@ void loop() {
     // esp_now_send(espnow.peer_addr, lidarcar.mapdata, 180);
     esp_err_t addStatus = esp_now_send(espnow.peer_addr, lidarcar.mapdata, 180);
     if (addStatus != ESP_OK) {
-      // lidarcar.ControlWheel(0, 0, 0);
+     // lidarcar.ControlWheel(0, 0, 0);
     }
     M5.Lcd.setCursor(240, 0);
     M5.Lcd.printf("Remote");

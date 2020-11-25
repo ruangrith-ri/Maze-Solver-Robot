@@ -58,9 +58,9 @@ void modeSelection() {
 
   if (flag == 0) {
     esp_err_t addStatus = esp_now_send(espnow.peer_addr, lidarcar.mapdata, 180);
-    esp_err_t addCompass = esp_now_send(espnow.peer_addr, azimuthAngle, 2);
-    if (addStatus != ESP_OK && addCompass != ESP_OK) {
-      lidarcar.ControlWheel(0, 0, 0);
+    // esp_err_t addCompass = esp_now_send(espnow.peer_addr, azimuthAngle, 2);
+    if (addStatus != ESP_OK) {
+      // lidarcar.ControlWheel(0, 0, 0);
     }
 
     M5.Lcd.setCursor(240, 0);
@@ -69,18 +69,20 @@ void modeSelection() {
 
   if (flag == 1) {
     esp_now_send(espnow.peer_addr, lidarcar.mapdata, 180);
-    esp_now_send(espnow.peer_addr, azimuthAngle, 1);
+    // esp_now_send(espnow.peer_addr, azimuthAngle, 1);
     lidarcar.CarMaze();
     M5.Lcd.setCursor(240, 0);
     M5.Lcd.printf("Maze  ");
   }
 }
+
+static uint16_t azimuth16 = 0;
+
 void displayCompassInfo() {
   compass.read();
-  azimuthAngle[0] = compass.getAzimuth();
-  azimuthAngle[1] = compass.getAzimuth() >> 8;
-  M5.Lcd.setCursor(0, 60, 2);
-  M5.Lcd.print("Azimuth : ");
-  M5.Lcd.print(compass.getAzimuth());
-  M5.Lcd.print("     ");
+
+  azimuth16 = compass.getAzimuth();
+
+  azimuthAngle[0] = azimuth16;
+  azimuthAngle[1] = azimuth16 >> 8;
 }

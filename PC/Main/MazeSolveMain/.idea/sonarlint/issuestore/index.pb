@@ -9,3 +9,5 @@ S
 0src/main/java/application/applet/MainApplet.java,d\b\db185c455402d00d5442b6c1c42315f19cc57428
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+e
+5src/main/java/application/service/SerialEventBus.java,c\2\c250730540f9b6780273496a1328df7fa1da8e80
