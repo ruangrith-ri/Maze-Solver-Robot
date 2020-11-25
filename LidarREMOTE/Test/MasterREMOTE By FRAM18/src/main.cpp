@@ -38,4 +38,7 @@ void loop() {
   M5.Lcd.setCursor(0, 40, 2);
   M5.Lcd.print("Test Read : ");
   M5.Lcd.print(SerialEventBus::read("PC"));
+
+  int i = 5;
+  
 }

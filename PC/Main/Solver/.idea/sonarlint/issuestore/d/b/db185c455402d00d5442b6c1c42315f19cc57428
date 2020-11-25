@@ -1,237 +1,227 @@
 
-
-java:S1319"sThe type of the "solution" object should be an interface such as "List" rather than the implementation "ArrayList".(âœä8¡å²Ûß.
-S
-java:S2696p"6Make the enclosing method "static" or remove this set.(ã…Š‹8Ô•ÌÜß.
-g
-java:S2184‡"DCast one of the operands of this subtraction operation to a "float".(äá¹üÿÿÿÿ8ê™ÜÜß.
-L
-java:S1125§")Remove the literal "false" boolean value.(º»Ñ›ıÿÿÿÿ8ê™ÜÜß.
-q
-java:S1104"OMake map a static final constant or non-public and provide accessors if needed.(À™ÑÒùÿÿÿÿ8¡å²Ûß.
-L
-java:S3740"/Provide the parametrized type for this generic.(âœä8¶¤ÊÙß.
-w
-java:S11047"UMake flagSolve a static final constant or non-public and provide accessors if needed.(ú•¬‡øÿÿÿÿ8¡å²Ûß.
+M
+java:S1481­"/Remove this unused "forkString" local variable.(® ø¶8ÖÃ“İß.
+u
+java:S1104*"SMake exitDir a static final constant or non-public and provide accessors if needed.(¾Şîıÿÿÿÿ8¡å²Ûß.
 T
-java:S2696ª"6Make the enclosing method "static" or remove this set.(şÇ š8Ô•ÌÜß.
-^
-java:S1117›";Rename "exitDir" which hides the field declared at line 44.(ˆöÛóùÿÿÿÿ8ê™ÜÜß.
-^	java:S125ğ"<This block of commented-out lines of code should be removed.(üŞú±øÿÿÿÿ8ê™ÜÜß.
-n
-java:S1104C"QMake start a static final constant or non-public and provide accessors if needed.(ÚÔŸ¸8¡å²Ûß.
-?
-java:S1659 ""Declare "rows" on a separate line.(„Í˜¢8ÂÆ×Ùß.
-X
-java:S2696o"6Make the enclosing method "static" or remove this set.(Ì¡ı¸ûÿÿÿÿ8ê™ÜÜß.
-T
-java:S1135Z"2Complete the task associated to this TODO comment.(†ìËüÿÿÿÿ8íâÈÜß.
-Y	java:S125”"<This block of commented-out lines of code should be removed.(¿„·î8ê™ÜÜß.
-k	java:S100·"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÓ¾¯8«àéÜß.
+java:S2696¨"6Make the enclosing method "static" or remove this set.(÷óÖ»8ùÃõÜß.
+Y	java:S125’"<This block of commented-out lines of code should be removed.(¿„·î8ê™ÜÜß.
 L
-java:S1125©")Remove the literal "false" boolean value.(£›ôÔüÿÿÿÿ8Ô•ÌÜß.
-G
-java:S1444 "*Make this "public static cols" field final(„Í˜¢8¡å²Ûß.
-\
-java:S1854´">Remove this useless assignment to local variable "forkString".(® ø¶8ÖÃ“İß.
-H
-java:S1444C"+Make this "public static start" field final(ÚÔŸ¸8¡å²Ûß.
-T
-java:S2696â"6Make the enclosing method "static" or remove this set.(äøÊ€8Ô•ÌÜß.
-G
-java:S1125ª")Remove the literal "false" boolean value.(şÇ š8Ô•ÌÜß.
-i	java:S128Ÿ"LEnd this switch case with an unconditional break, return or throw statement.(ĞŠ¶Ş8Ô•ÌÜß.
-t
-java:S1104‡"QMake point a static final constant or non-public and provide accessors if needed.(âÔ„üÿÿÿÿ8ê™ÜÜß.
-X	java:S125/"<This block of commented-out lines of code should be removed.(Ü°óî8ÂÆ×Ùß.
-^	java:S125Ì"<This block of commented-out lines of code should be removed.(€Çøÿÿÿÿ8ê™ÜÜß.
-Y
-java:S14448"7Make this "public static flagPrintSolution" field final(ÿá€ûşÿÿÿÿ8¡å²Ûß.
-Z
-java:S2589ù"7Remove this expression which always evaluates to "true"(Èû¥´ıÿÿÿÿ8ê™ÜÜß.
-s
-java:S1104"VMake processing a static final constant or non-public and provide accessors if needed.(äÅ‰Ñ8óÓ­Ùß.
-
-java:S11048"]Make flagPrintSolution a static final constant or non-public and provide accessors if needed.(ÿá€ûşÿÿÿÿ8¡å²Ûß.
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(âœä8¡å²Ûß.
-B
-java:S2129," Remove this "String" constructor(¾Şîıÿÿÿÿ8ÂÆ×Ùß.
-:
-java:S2386"Make this member "protected".(âœä8¡å²Ûß.
-S
-java:S2696Ş"6Make the enclosing method "static" or remove this set.(Í¡ßz8ê™ÜÜß.
-?	java:S131""Add a default case to this switch.(¡â½ì8ê™ÜÜß.
-Q
-java:S14447"/Make this "public static flagSolve" field final(ú•¬‡øÿÿÿÿ8¡å²Ûß.
-^
-java:S2184p"ACast one of the operands of this division operation to a "float".(ã…Š‹8Ô•ÌÜß.
-Y	java:S125°"<This block of commented-out lines of code should be removed.(³‹¨à8ÖÃ“İß.
-D	java:S131""Add a default case to this switch.(âã¤¿üÿÿÿÿ8ê™ÜÜß.
-a
-java:S1155â">Use isEmpty() to check whether the collection is empty or not.(Û²íˆşÿÿÿÿ8°™ıÜß.
+java:S1125§")Remove the literal "false" boolean value.(£›ôÔüÿÿÿÿ8Ô•ÌÜß.
 [
-java:S1117ü"8Rename "next" which hides the field declared at line 65.(â“Òúÿÿÿÿ8ê™ÜÜß.
-o	java:S101†"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¦ï…ùÿÿÿÿ8ê™ÜÜß.
-r
-java:S1104"PMake grid a static final constant or non-public and provide accessors if needed.(Ù“İ úÿÿÿÿ8¡å²Ûß.
-k	java:S100¤"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±­ÇÛ8«àéÜß.
-L
-java:S1125¨")Remove the literal "false" boolean value.(¤è«¦üÿÿÿÿ8Ô•ÌÜß.
-^	java:S125¦"<This block of commented-out lines of code should be removed.(ÜÏ¿¾ùÿÿÿÿ8ÈñşÜß.
-L
-java:S1172²"/Remove this unused method parameter "theValue".(Ì”ï^8ä€øÜß.
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ù“İ úÿÿÿÿ8¡å²Ûß.
-Y	java:S125©"<This block of commented-out lines of code should be removed.(´´ë”8 ÿÜß.
-r
-java:S1104A"PMake next a static final constant or non-public and provide accessors if needed.(­öìùıÿÿÿÿ8¡å²Ûß.
-M
-java:S1172¤"/Remove this unused method parameter "theValue".(±­ÇÛ8ùÃõÜß.
-N
-java:S1444D",Make this "public static finish" field final(‚âÁæùÿÿÿÿ8¡å²Ûß.
-L
-java:S1444A"*Make this "public static next" field final(­öìùıÿÿÿÿ8¡å²Ûß.
-R
-java:S1172"/Remove this unused method parameter "theValue".(Ÿáó°ıÿÿÿÿ8ƒ±ñÜß.
-w
-java:S2293¯"YReplace the type specification in this constructor call with the diamond operator ("<>").(¾’¶8ê™ÜÜß.
-\
-java:S1155‹">Use isEmpty() to check whether the collection is empty or not.(øÇŠ‚8ê™ÜÜß.
-
-java:S1319"nThe type of the "map" object should be an interface such as "List" rather than the implementation "ArrayList".(À™ÑÒùÿÿÿÿ8¡å²Ûß.
-K
-java:S1444".Make this "public static solution" field final(âœä8¡å²Ûß.
-q
-java:S1104"TMake solution a static final constant or non-public and provide accessors if needed.(âœä8¡å²Ûß.
-G
-java:S1444 "*Make this "public static rows" field final(„Í˜¢8¡å²Ûß.
-L
-java:S1125•")Remove the literal "false" boolean value.(…ƒœ„ÿÿÿÿÿ8ƒƒ÷Üß.
-Y	java:S125™"<This block of commented-out lines of code should be removed.(½½“î8Çä’İß.
-t
-java:S1104D"RMake finish a static final constant or non-public and provide accessors if needed.(‚âÁæùÿÿÿÿ8¡å²Ûß.
-J
-java:S1444@"-Make this "public static current" field final(£µ„ş8¡å²Ûß.
-k	java:S100”"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êî¦Ñ8³œèÜß.
-I
-java:S1444!",Make this "public static startI" field final(İ´Óä8¡å²Ûß.
-m
-java:S1104 "PMake rows a static final constant or non-public and provide accessors if needed.(„Í˜¢8¡å²Ûß.
-k	java:S100­"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆæñ¿8«àéÜß.
-l
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(¶“p8Ö³ÓÙß.
-{
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ù“İ úÿÿÿÿ8ØâÉÙß.
-‘
-java:S1319"oThe type of the "grid" object should be an interface such as "List" rather than the implementation "ArrayList".(Ù“İ úÿÿÿÿ8¡å²Ûß.
+java:S1117ú"8Rename "next" which hides the field declared at line 63.(â“Òúÿÿÿÿ8ê™ÜÜß.
 Y
-java:S2696§"6Make the enclosing method "static" or remove this set.(º»Ñ›ıÿÿÿÿ8ê™ÜÜß.
-Y
-java:S2696¨"6Make the enclosing method "static" or remove this set.(¤è«¦üÿÿÿÿ8Ô•ÌÜß.
-?
-java:S2386"Make this member "protected".(À™ÑÒùÿÿÿÿ8°™ıÜß.
-Q
-java:S1481Z"/Remove this unused "forkString" local variable.(†ìËüÿÿÿÿ8Â‡İß.
-Y
-java:S2696¨"6Make the enclosing method "static" or remove this set.(¤è«¦üÿÿÿÿ8Ô•ÌÜß.
-n	java:S128"LEnd this switch case with an unconditional break, return or throw statement.(½ÜñÏÿÿÿÿÿ8ê™ÜÜß.
-L
-java:S1444"*Make this "public static grid" field final(Ù“İ úÿÿÿÿ8¡å²Ûß.
-v
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÁÂ¤²8ØâÉÙß.
-z	java:S127•"XRefactor the code in order to not assign to this loop counter from within the loop body.(õÏó‹ûÿÿÿÿ8ê™ÜÜß.
-T
-java:S2696á"6Make the enclosing method "static" or remove this set.(µéâ²8ê™ÜÜß.
-^	java:S125–"<This block of commented-out lines of code should be removed.(¶ÆƒÓşÿÿÿÿ8Çä’İß.
-Y
-java:S2696©"6Make the enclosing method "static" or remove this set.(£›ôÔüÿÿÿÿ8Ô•ÌÜß.
-O
-java:S1444,"-Make this "public static exitDir" field final(¾Şîıÿÿÿÿ8¡å²Ûß.
-p
-java:S1104@"SMake current a static final constant or non-public and provide accessors if needed.(£µ„ş8¡å²Ûß.
-D	java:S131¾""Add a default case to this switch.( ½ëÇÿÿÿÿÿ8¶…ùÜß.
-n	java:S117ˆ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÒÓ“8Ô•ÌÜß.
-`
-java:S1854Z">Remove this useless assignment to local variable "forkString".(†ìËüÿÿÿÿ8Â‡İß.
-M
-java:S1481´"/Remove this unused "forkString" local variable.(® ø¶8ÖÃ“İß.
-T
-java:S2696ã"6Make the enclosing method "static" or remove this set.(İ¶³8ê™ÜÜß.
-j	java:S100²"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì”ï^8«àéÜß.
-s	java:S117‡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äá¹üÿÿÿÿ8ê™ÜÜß.
-Y
-java:S2696‰"6Make the enclosing method "static" or remove this set.(‘®Ìëûÿÿÿÿ8ê™ÜÜß.
-\
-java:S1155†">Use isEmpty() to check whether the collection is empty or not.(¾ÍÎÚ8°™ıÜß.
-M
-java:S1172­"/Remove this unused method parameter "theValue".(ˆæñ¿8ÕÙ÷Üß.
-Y	java:S125µ"<This block of commented-out lines of code should be removed.(³‹¨à8ÖÃ“İß.
-S
-java:S2696ƒ"6Make the enclosing method "static" or remove this set.(Í¡ßz8ê™ÜÜß.
-o
-java:S1104""RMake startJ a static final constant or non-public and provide accessors if needed.(”Ùœî8¡å²Ûß.
-^	java:S125"<This block of commented-out lines of code should be removed.(Ô»«÷ûÿÿÿÿ8ê™ÜÜß.
-m
-java:S1104 "PMake cols a static final constant or non-public and provide accessors if needed.(„Í˜¢8¡å²Ûß.
-c
-java:S2184o"ACast one of the operands of this division operation to a "float".(Ì¡ı¸ûÿÿÿÿ8ê™ÜÜß.
-]	java:S125V"<This block of commented-out lines of code should be removed.(¤õü˜ÿÿÿÿÿ8œèÕÛß.
-
-java:S1845"{Rename field "map" to prevent any misunderstanding/clash with method "map" defined in superclass "processing.core.PApplet".(À™ÑÒùÿÿÿÿ8¡å²Ûß.
-=
-java:S2129<" Remove this "String" constructor(à¹’8ÂÆ×Ùß.
-T
-java:S2696¸"6Make the enclosing method "static" or remove this set.(Ê‡“ü8¢ÀøÜß.
-œ
-java:S1845C"Rename field "start" to prevent any misunderstanding/clash with method "start" defined in superclass "processing.core.PApplet".(ÚÔŸ¸8¡å²Ûß.
-Y
-java:S2696§"6Make the enclosing method "static" or remove this set.(º»Ñ›ıÿÿÿÿ8ê™ÜÜß.
-o
-java:S1104!"RMake startI a static final constant or non-public and provide accessors if needed.(İ´Óä8¡å²Ûß.
-M
-java:S1172”"/Remove this unused method parameter "theValue".(Êî¦Ñ8ƒƒ÷Üß.
-T
-java:S2696ª"6Make the enclosing method "static" or remove this set.(şÇ š8Ô•ÌÜß.
-{
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(À™ÑÒùÿÿÿÿ8ØâÉÙß.
+java:S2696¥"6Make the enclosing method "static" or remove this set.(º»Ñ›ıÿÿÿÿ8ê™ÜÜß.
 b
-java:S2184ˆ"DCast one of the operands of this subtraction operation to a "float".(ÏÒÓ“8Ô•ÌÜß.
-\
-java:S1854¯">Remove this useless assignment to local variable "forkString".(® ø¶8ÖÃ“İß.
-T
-java:S2696Ó"6Make the enclosing method "static" or remove this set.(ï™ƒé8ê™ÜÜß.
-T
-java:S2696§"6Make the enclosing method "static" or remove this set.(Å®âĞ8ùÃõÜß.
-Y
-java:S2696©"6Make the enclosing method "static" or remove this set.(£›ôÔüÿÿÿÿ8Ô•ÌÜß.
-T
-java:S2696ª"6Make the enclosing method "static" or remove this set.(÷óÖ»8ùÃõÜß.
+java:S2184†"DCast one of the operands of this subtraction operation to a "float".(ÏÒÓ“8Ô•ÌÜß.
+Y	java:S125—"<This block of commented-out lines of code should be removed.(½½“î8Çä’İß.
 K
-java:S1125±"(Remove the literal "true" boolean value.(¸ıŠ°üÿÿÿÿ8ê™ÜÜß.
-M
-java:S1172·"/Remove this unused method parameter "theValue".(ÌÓ¾¯8¢ÀøÜß.
-S
-java:S1444:"1Make this "public static flagMazeGen" field final(’ÿ²–ÿÿÿÿÿ8¡å²Ûß.
-K
-java:S1444")Make this "public static map" field final(À™ÑÒùÿÿÿÿ8¡å²Ûß.
-?
-java:S2386"Make this member "protected".(Ù“İ úÿÿÿÿ8°™ıÜß.
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(À™ÑÒùÿÿÿÿ8¡å²Ûß.
-n	java:S128 "LEnd this switch case with an unconditional break, return or throw statement.(¹½ñ¬ÿÿÿÿÿ8Ô•ÌÜß.
-M
-java:S1481¯"/Remove this unused "forkString" local variable.(® ø¶8ÖÃ“İß.
-y
-java:S1104:"WMake flagMazeGen a static final constant or non-public and provide accessors if needed.(’ÿ²–ÿÿÿÿÿ8¡å²Ûß.
-u
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¶“p8ØâÉÙß.
-n
-java:S1301¾"KReplace this "switch" statement by "if" statements to increase readability.( ½ëÇÿÿÿÿÿ8¶…ùÜß.
-u
-java:S1104,"SMake exitDir a static final constant or non-public and provide accessors if needed.(¾Şîıÿÿÿÿ8¡å²Ûß.
-p	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿáó°ıÿÿÿÿ8«àéÜß.
-a
-java:S1155Œ">Use isEmpty() to check whether the collection is empty or not.(ıÄÌ•øÿÿÿÿ8°™ıÜß.
+java:S1444".Make this "public static solution" field final(âœä8¡å²Ûß.
+G
+java:S1444"*Make this "public static rows" field final(„Í˜¢8¡å²Ûß.
+m
+java:S1104"PMake rows a static final constant or non-public and provide accessors if needed.(„Í˜¢8¡å²Ûß.
+L
+java:S1172°"/Remove this unused method parameter "theValue".(Ì”ï^8ä€øÜß.
+R
+java:S1172›"/Remove this unused method parameter "theValue".(Ÿáó°ıÿÿÿÿ8ƒ±ñÜß.
 I
-java:S1444"",Make this "public static startJ" field final(”Ùœî8¡å²Ûß.
+java:S1444 ",Make this "public static startJ" field final(”Ùœî8¡å²Ûß.
+\
+java:S1854­">Remove this useless assignment to local variable "forkString".(® ø¶8ÖÃ“İß.
+Q
+java:S1481X"/Remove this unused "forkString" local variable.(†ìËüÿÿÿÿ8Â‡İß.
+O
+java:S1444*"-Make this "public static exitDir" field final(¾Şîıÿÿÿÿ8¡å²Ûß.
+T
+java:S2696á"6Make the enclosing method "static" or remove this set.(İ¶³8ê™ÜÜß.
+n
+java:S1104A"QMake start a static final constant or non-public and provide accessors if needed.(ÚÔŸ¸8¡å²Ûß.
+Q
+java:S14445"/Make this "public static flagSolve" field final(ú•¬‡øÿÿÿÿ8¡å²Ûß.
+o
+java:S1104"RMake startI a static final constant or non-public and provide accessors if needed.(İ´Óä8¡å²Ûß.
+j	java:S100°"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì”ï^8«àéÜß.
+T
+java:S1135X"2Complete the task associated to this TODO comment.(†ìËüÿÿÿÿ8íâÈÜß.
+T
+java:S2696Ñ"6Make the enclosing method "static" or remove this set.(ï™ƒé8ê™ÜÜß.
+w
+java:S2293­"YReplace the type specification in this constructor call with the diamond operator ("<>").(¾’¶8ê™ÜÜß.
+
+java:S1319"sThe type of the "solution" object should be an interface such as "List" rather than the implementation "ArrayList".(âœä8¡å²Ûß.
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(âœä8¡å²Ûß.
+D	java:S131¼""Add a default case to this switch.( ½ëÇÿÿÿÿÿ8¶…ùÜß.
+L
+java:S1444"*Make this "public static grid" field final(Ù“İ úÿÿÿÿ8¡å²Ûß.
+n	java:S117†"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÒÓ“8Ô•ÌÜß.
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(À™ÑÒùÿÿÿÿ8ØâÉÙß.
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(À™ÑÒùÿÿÿÿ8¡å²Ûß.
+n
+java:S1301¼"KReplace this "switch" statement by "if" statements to increase readability.( ½ëÇÿÿÿÿÿ8¶…ùÜß.
+q
+java:S1104"TMake solution a static final constant or non-public and provide accessors if needed.(âœä8¡å²Ûß.
+z	java:S127“"XRefactor the code in order to not assign to this loop counter from within the loop body.(õÏó‹ûÿÿÿÿ8ê™ÜÜß.
+i	java:S128"LEnd this switch case with an unconditional break, return or throw statement.(ĞŠ¶Ş8Ô•ÌÜß.
+p
+java:S1104>"SMake current a static final constant or non-public and provide accessors if needed.(£µ„ş8¡å²Ûß.
+^
+java:S2184n"ACast one of the operands of this division operation to a "float".(ã…Š‹8Ô•ÌÜß.
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ù“İ úÿÿÿÿ8ØâÉÙß.
+T
+java:S2696¥"6Make the enclosing method "static" or remove this set.(Å®âĞ8ùÃõÜß.
+=
+java:S2129:" Remove this "String" constructor(à¹’8ÂÆ×Ùß.
+Y
+java:S2696§"6Make the enclosing method "static" or remove this set.(£›ôÔüÿÿÿÿ8Ô•ÌÜß.
+K
+java:S1125¯"(Remove the literal "true" boolean value.(¸ıŠ°üÿÿÿÿ8ê™ÜÜß.
+M
+java:S1172¢"/Remove this unused method parameter "theValue".(±­ÇÛ8ùÃõÜß.
+L
+java:S1444?"*Make this "public static next" field final(­öìùıÿÿÿÿ8¡å²Ûß.
+M
+java:S1172µ"/Remove this unused method parameter "theValue".(ÌÓ¾¯8¢ÀøÜß.
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÁÂ¤²8ØâÉÙß.
+^	java:S125”"<This block of commented-out lines of code should be removed.(¶ÆƒÓşÿÿÿÿ8Çä’İß.
+Y	java:S125³"<This block of commented-out lines of code should be removed.(³‹¨à8ÖÃ“İß.
+y
+java:S11048"WMake flagMazeGen a static final constant or non-public and provide accessors if needed.(’ÿ²–ÿÿÿÿÿ8¡å²Ûß.
+k	java:S100’"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êî¦Ñ8³œèÜß.
+L
+java:S3740"/Provide the parametrized type for this generic.(âœä8¶¤ÊÙß.
+K
+java:S1444")Make this "public static map" field final(À™ÑÒùÿÿÿÿ8¡å²Ûß.
+c
+java:S2184m"ACast one of the operands of this division operation to a "float".(Ì¡ı¸ûÿÿÿÿ8ê™ÜÜß.
+Y	java:S125§"<This block of commented-out lines of code should be removed.(´´ë”8 ÿÜß.
+o
+java:S1104 "RMake startJ a static final constant or non-public and provide accessors if needed.(”Ùœî8¡å²Ûß.
+S
+java:S2696Ü"6Make the enclosing method "static" or remove this set.(Í¡ßz8ê™ÜÜß.
+r
+java:S1104?"PMake next a static final constant or non-public and provide accessors if needed.(­öìùıÿÿÿÿ8¡å²Ûß.
+
+java:S1845"{Rename field "map" to prevent any misunderstanding/clash with method "map" defined in superclass "processing.core.PApplet".(À™ÑÒùÿÿÿÿ8¡å²Ûß.
+L
+java:S1125¥")Remove the literal "false" boolean value.(º»Ñ›ıÿÿÿÿ8ê™ÜÜß.
+l
+java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(¶“p8Ö³ÓÙß.
+\
+java:S1155‰">Use isEmpty() to check whether the collection is empty or not.(øÇŠ‚8ê™ÜÜß.
+D	java:S131›""Add a default case to this switch.(âã¤¿üÿÿÿÿ8ê™ÜÜß.
+G
+java:S1444"*Make this "public static cols" field final(„Í˜¢8¡å²Ûß.
+Y
+java:S14446"7Make this "public static flagPrintSolution" field final(ÿá€ûşÿÿÿÿ8¡å²Ûß.
+œ
+java:S1845A"Rename field "start" to prevent any misunderstanding/clash with method "start" defined in superclass "processing.core.PApplet".(ÚÔŸ¸8¡å²Ûß.
+s	java:S117…"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äá¹üÿÿÿÿ8ê™ÜÜß.
+^
+java:S1117™";Rename "exitDir" which hides the field declared at line 42.(ˆöÛóùÿÿÿÿ8ê™ÜÜß.
+M
+java:S1172«"/Remove this unused method parameter "theValue".(ˆæñ¿8ÕÙ÷Üß.
+n	java:S128"LEnd this switch case with an unconditional break, return or throw statement.(¹½ñ¬ÿÿÿÿÿ8Ô•ÌÜß.
+g
+java:S2184…"DCast one of the operands of this subtraction operation to a "float".(äá¹üÿÿÿÿ8ê™ÜÜß.
+X	java:S125-"<This block of commented-out lines of code should be removed.(Ü°óî8ÂÆ×Ùß.
+G
+java:S1125¨")Remove the literal "false" boolean value.(şÇ š8Ô•ÌÜß.
+Y
+java:S2696‡"6Make the enclosing method "static" or remove this set.(‘®Ìëûÿÿÿÿ8ê™ÜÜß.
+Y	java:S125®"<This block of commented-out lines of code should be removed.(³‹¨à8ÖÃ“İß.
+w
+java:S11045"UMake flagSolve a static final constant or non-public and provide accessors if needed.(ú•¬‡øÿÿÿÿ8¡å²Ûß.
+
+java:S1319"nThe type of the "map" object should be an interface such as "List" rather than the implementation "ArrayList".(À™ÑÒùÿÿÿÿ8¡å²Ûß.
+^	java:S125Ê"<This block of commented-out lines of code should be removed.(€Çøÿÿÿÿ8ê™ÜÜß.
+S
+java:S14448"1Make this "public static flagMazeGen" field final(’ÿ²–ÿÿÿÿÿ8¡å²Ûß.
+r
+java:S1104"PMake grid a static final constant or non-public and provide accessors if needed.(Ù“İ úÿÿÿÿ8¡å²Ûß.
+M
+java:S1172’"/Remove this unused method parameter "theValue".(Êî¦Ñ8ƒƒ÷Üß.
+p	java:S100›"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿáó°ıÿÿÿÿ8«àéÜß.
+L
+java:S1125¦")Remove the literal "false" boolean value.(¤è«¦üÿÿÿÿ8Ô•ÌÜß.
+Z
+java:S2589÷"7Remove this expression which always evaluates to "true"(Èû¥´ıÿÿÿÿ8ê™ÜÜß.
+M
+java:S1481²"/Remove this unused "forkString" local variable.(® ø¶8ÖÃ“İß.
+`
+java:S1854X">Remove this useless assignment to local variable "forkString".(†ìËüÿÿÿÿ8Â‡İß.
+]	java:S125T"<This block of commented-out lines of code should be removed.(¤õü˜ÿÿÿÿÿ8œèÕÛß.
+^	java:S125¤"<This block of commented-out lines of code should be removed.(ÜÏ¿¾ùÿÿÿÿ8ÈñşÜß.
+L
+java:S1125“")Remove the literal "false" boolean value.(…ƒœ„ÿÿÿÿÿ8ƒƒ÷Üß.
+^	java:S125Œ"<This block of commented-out lines of code should be removed.(Ô»«÷ûÿÿÿÿ8ê™ÜÜß.
+q
+java:S1104"OMake map a static final constant or non-public and provide accessors if needed.(À™ÑÒùÿÿÿÿ8¡å²Ûß.
+Y
+java:S2696¥"6Make the enclosing method "static" or remove this set.(º»Ñ›ıÿÿÿÿ8ê™ÜÜß.
+‘
+java:S1319"oThe type of the "grid" object should be an interface such as "List" rather than the implementation "ArrayList".(Ù“İ úÿÿÿÿ8¡å²Ûß.
+
+java:S11046"]Make flagPrintSolution a static final constant or non-public and provide accessors if needed.(ÿá€ûşÿÿÿÿ8¡å²Ûß.
+B
+java:S2129*" Remove this "String" constructor(¾Şîıÿÿÿÿ8ÂÆ×Ùß.
+Y
+java:S2696¦"6Make the enclosing method "static" or remove this set.(¤è«¦üÿÿÿÿ8Ô•ÌÜß.
+S
+java:S2696"6Make the enclosing method "static" or remove this set.(Í¡ßz8ê™ÜÜß.
+s
+java:S1104"VMake processing a static final constant or non-public and provide accessors if needed.(äÅ‰Ñ8óÓ­Ùß.
+u
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¶“p8ØâÉÙß.
+T
+java:S2696¶"6Make the enclosing method "static" or remove this set.(Ê‡“ü8¢ÀøÜß.
+n	java:S128œ"LEnd this switch case with an unconditional break, return or throw statement.(½ÜñÏÿÿÿÿÿ8ê™ÜÜß.
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ù“İ úÿÿÿÿ8¡å²Ûß.
+J
+java:S1444>"-Make this "public static current" field final(£µ„ş8¡å²Ûß.
+T
+java:S2696ß"6Make the enclosing method "static" or remove this set.(µéâ²8ê™ÜÜß.
+k	java:S100µ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÓ¾¯8«àéÜß.
+k	java:S100¢"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±­ÇÛ8«àéÜß.
+:
+java:S2386"Make this member "protected".(âœä8¡å²Ûß.
+I
+java:S1444",Make this "public static startI" field final(İ´Óä8¡å²Ûß.
+t
+java:S1104B"RMake finish a static final constant or non-public and provide accessors if needed.(‚âÁæùÿÿÿÿ8¡å²Ûß.
+o	java:S101„"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¦ï…ùÿÿÿÿ8ê™ÜÜß.
+X
+java:S2696m"6Make the enclosing method "static" or remove this set.(Ì¡ı¸ûÿÿÿÿ8ê™ÜÜß.
+\
+java:S1854²">Remove this useless assignment to local variable "forkString".(® ø¶8ÖÃ“İß.
+Y
+java:S2696¦"6Make the enclosing method "static" or remove this set.(¤è«¦üÿÿÿÿ8Ô•ÌÜß.
+Y
+java:S2696§"6Make the enclosing method "static" or remove this set.(£›ôÔüÿÿÿÿ8Ô•ÌÜß.
+T
+java:S2696à"6Make the enclosing method "static" or remove this set.(äøÊ€8Ô•ÌÜß.
+k	java:S100«"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆæñ¿8«àéÜß.
+?	java:S131Œ""Add a default case to this switch.(¡â½ì8ê™ÜÜß.
+T
+java:S2696¨"6Make the enclosing method "static" or remove this set.(şÇ š8Ô•ÌÜß.
+T
+java:S2696¨"6Make the enclosing method "static" or remove this set.(şÇ š8Ô•ÌÜß.
+H
+java:S1444A"+Make this "public static start" field final(ÚÔŸ¸8¡å²Ûß.
+^	java:S125î"<This block of commented-out lines of code should be removed.(üŞú±øÿÿÿÿ8ê™ÜÜß.
+?
+java:S1659""Declare "rows" on a separate line.(„Í˜¢8ÂÆ×Ùß.
+S
+java:S2696n"6Make the enclosing method "static" or remove this set.(ã…Š‹8Ô•ÌÜß.
+N
+java:S1444B",Make this "public static finish" field final(‚âÁæùÿÿÿÿ8¡å²Ûß.
+m
+java:S1104"PMake cols a static final constant or non-public and provide accessors if needed.(„Í˜¢8¡å²Ûß.
+t
+java:S1104…"QMake point a static final constant or non-public and provide accessors if needed.(âÔ„üÿÿÿÿ8ê™ÜÜß.

@@ -5,17 +5,33 @@ void compassService(void* pvParameters) {
   compass.setCalibration(-1270, 865, -1193, 885, -88, 93);
   compass.setSmoothing(10, true);
 
-  for (;;) {
-    displayCompassInfo();
-    vTaskDelay(100);
+  while (true) {
+    compass.read();
+
+    azimuth16 = compass.getAzimuth();
+
+    azimuthAngle[0] = azimuth16;
+    azimuthAngle[1] = azimuth16 >> 8;
+
+    Serial.println("Angle : " + String(compass.getAzimuth()));
+  }
+}
+
+void lidarService(void* pvParameters) {
+  // Lidar
+  Serial1.begin(230400, SERIAL_8N1, 16, 2);
+  // Motor
+  lidarcar.Init();
+
+  while (true) {
+    lidarcar.GetData();
   }
 }
 
 void setup() {
   M5.begin();
 
-  Serial1.begin(230400, SERIAL_8N1, 16, 2);  // Lidar
-  Serial2.begin(115200);                     // motor
+  Serial2.begin(115200);  // motor
 
   spreadScreen();
   delay(2000);
@@ -28,29 +44,34 @@ void setup() {
   M5.Lcd.setCursor(240, 220, 2);
   M5.Lcd.printf("mode");
 
-  //! Motor
-  lidarcar.Init();
+  compass.init();
+  compass.setCalibration(-1270, 865, -1193, 885, -88, 93);
+  compass.setSmoothing(10, true);
 
-  // compass.init();
-  // compass.setCalibration(-1270, 865, -1193, 885, -88, 93);
-  // compass.setSmoothing(10, true);
+  // xTaskCreatePinnedToCore(compassService, "CompassService", 6000, NULL, 0,
+  // NULL, 1);
 
-  xTaskCreatePinnedToCore(compassService, "CompassService", 6000, NULL, 0, NULL,
-                          1);
+  xTaskCreatePinnedToCore(lidarService, "LidarService", 40960, NULL, 0, NULL,
+                          0);
 
   beepBeep();
 }
 
 void loop() {
-  lidarcar.MapDisplay();
-  lidarcar.GetData();
-  // displayCompassInfo();
-  modeSelection();
+  compass.read();
+  azimuth16 = compass.getAzimuth();
+  azimuthAngle[0] = azimuth16;
+  azimuthAngle[1] = azimuth16 >> 8;
+  Serial.println("Angle : " + String(compass.getAzimuth()));
 
   M5.Lcd.setCursor(0, 60, 2);
   M5.Lcd.print("Azimuth : ");
   M5.Lcd.print(azimuth16);
   M5.Lcd.print("     ");
+
+  lidarcar.MapDisplay();
+  // displayCompassInfo();
+  modeSelection();
 }
 
 /************************************************************************/
