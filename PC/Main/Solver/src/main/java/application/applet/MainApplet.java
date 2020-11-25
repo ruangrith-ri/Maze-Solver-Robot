@@ -1,10 +1,10 @@
 package application.applet;
 import application.dataType.Cell;
+import application.service.SerialEventBus;
 import controlP5.ControlEvent;
 import controlP5.ControlP5;
 import processing.core.PApplet;
 
-import interfascia.*;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -19,13 +19,13 @@ public class MainApplet extends PApplet {
 
     ControlP5 cp5;
 
-    ArrayList<Cell> stack = new ArrayList<Cell>();
-    static public ArrayList<Cell> grid = new ArrayList<Cell>();
+    ArrayList<Cell> stack = new ArrayList<>();
+    static public ArrayList<Cell> grid = new ArrayList<>();
 
-    Stack<Cell> stackMap = new Stack<Cell>();
-    static public ArrayList<Cell> map = new ArrayList<Cell>();
+    Stack<Cell> stackMap = new Stack<>();
+    static public ArrayList<Cell> map = new ArrayList<>();
 
-    static public ArrayList<String> solution = new ArrayList();
+    static public ArrayList<String> solution = new ArrayList<>();
 
 
     //Parameters for maze generation//
@@ -41,32 +41,29 @@ public class MainApplet extends PApplet {
     //Parameters for maze solving//
     static int solveStartI = startI;
     static int solveStartJ = startJ;
-    public static String exitDir = new String();
+    public static String exitDir;
 
     //Handshaking//
-    //Serial myPort;
-    String val;
-    boolean firstContact = false;
+
     boolean mode = true;
     boolean readyMap = false;
-    boolean readyInterface = false;
     boolean flagEnd = true;
 
     public static boolean flagSolve = false;
     public static boolean flagPrintSolution = false;
 
     public static boolean flagMazeGen = false;
-    boolean[] incomingWall = {true, true, true, true};
-    String nextDirection = new String();
+    String nextDirection;
 
     //Initialization//
     Cell cell;
     public static Cell current;
     public static Cell next;
 
-    public static Cell start = new Cell(solveStartI,solveStartI);
+    public static Cell start = new Cell(solveStartI,solveStartJ);
     public static Cell finish = new Cell(0,0);
 
+    SerialEventBus serialEventBus;
     /*-------------------------------------------------------------------------------------------*/
 
     @Override
@@ -89,13 +86,13 @@ public class MainApplet extends PApplet {
 
         String forkString = str(fork); //TODO: Update On Button Click
 
-        cp5.addButton("InterfaceMode")
+        cp5.addButton("Mode")
                 .setPosition(950,60)
                 .setSize(200,19);
         cp5.addButton("GenerateNewMaze")
                 .setPosition(950,100)
                 .setSize(200,19);
-        cp5.addButton("BeginMazeGen")
+        cp5.addButton("PlayPause")
                 .setPosition(950,125)
                 .setSize(200,19);
         cp5.addButton("Minus")
@@ -116,6 +113,8 @@ public class MainApplet extends PApplet {
         createFork();
         createExit();
         initialize(map);
+
+        serialEventBus = new SerialEventBus("COM9",115200);
     }
 
     @Override
@@ -132,7 +131,7 @@ public class MainApplet extends PApplet {
     /*-------------------------------------------------------------------------------------------*/
 
     public static class queueNode {
-        public Cell point; // The cordinates of a cell
+        public Cell point; // The coordinates of a cell
 
         public queueNode(Cell pointPos){
             point = pointPos;
@@ -145,14 +144,10 @@ public class MainApplet extends PApplet {
         println(theEvent.getController().getName());
     }
 
-    public void InterfaceMode(int theValue) {
-        if(mode == false) {
-            //modeButton.setLabel("Interface Mode");
-            mode = true;
-        } else {
-            //modeButton.setLabel("Robot Mode");
-            mode = false;
-        }
+    public void Mode(int theValue) {
+        //modeButton.setLabel("Interface Mode");
+        //modeButton.setLabel("Robot Mode");
+        mode = !mode;
     }
     public void GenerateNewMaze(int theValue) {
         mazeGenInterface();
@@ -161,14 +156,10 @@ public class MainApplet extends PApplet {
         mapClear(map);
         flagEnd = true;
     }
-    public void BeginMazeGen(int theValue) {
-        if(!flagMazeGen) {
-            //pause.setLabel("Pause MazeGen");
-            flagMazeGen = true;
-        } else {
-            //pause.setLabel("Play MazeGen");
-            flagMazeGen = false;
-        }
+    public void PlayPause(int theValue) {
+        //pause.setLabel("Pause MazeGen");
+        //pause.setLabel("Play MazeGen");
+        flagMazeGen = !flagMazeGen;
     }
     public void Plus(int theValue) {
         fork++;
@@ -184,16 +175,38 @@ public class MainApplet extends PApplet {
         flagSolve = true;
     }
 
-    void parseWall(String incomingSerial) {
-        for(int i = 0; i < 4; i++){
-            char wallParse = incomingSerial.charAt(i);
-            switch (wallParse) {
-                case '1': incomingWall[i] = true; break;
-                case '0': incomingWall[i] = false; break;
-            }
-        }
+    String[] wallReceive() {
+
+        String[] wallSerial = new String[4];
+
+        //if(serialEventBus.readNonContain("wallN").equals("")) {
+            wallSerial[0] = serialEventBus.readNonContain("wallNorth");
+        //}
+
+        //if(serialEventBus.readNonContain("wallE").equals("")) {
+            wallSerial[1] = serialEventBus.readNonContain("wallEast");
+        //}
+
+        //if(serialEventBus.readNonContain("wallS").equals("")) {
+            wallSerial[2] = serialEventBus.readNonContain("wallSouth");
+        //}
+
+        //if(serialEventBus.readNonContain("wallW").equals("")) {
+            wallSerial[3] = serialEventBus.readNonContain("wallWest");
+        //}
+
+        return wallSerial;
     }
 
+    boolean[] parseWall(String [] wallSerial) {
+
+        boolean[] incomingWall = {true, true, true, true};
+        for(int i = 0; i < 4; i++) {
+            if      (wallSerial[i].equals("1")) { incomingWall[i] = false; }
+            else if (wallSerial[i].equals("0")) { incomingWall[i] = true;  }
+        }
+        return incomingWall;
+    }
     /*-------------------------------------------------------------------------------------------*/
 
     void mazeGenInterface() {
@@ -292,17 +305,17 @@ public class MainApplet extends PApplet {
     }
 
     void exitCheck(Cell currentCell){
-        if(currentCell.j == 0 && currentCell.walls[0] == false) {finish = currentCell; exitDir = "N";}
-        if(currentCell.i == 9 && currentCell.walls[1] == false) {finish = currentCell; exitDir = "E";}
-        if(currentCell.j == 9 && currentCell.walls[2] == false) {finish = currentCell; exitDir = "S";}
-        if(currentCell.i == 0 && currentCell.walls[3] == false) {finish = currentCell; exitDir = "W";}
+        if(currentCell.j == 0 && !currentCell.walls[0]) {finish = currentCell; exitDir = "N";}
+        if(currentCell.i == 9 && !currentCell.walls[1]) {finish = currentCell; exitDir = "E";}
+        if(currentCell.j == 9 && !currentCell.walls[2]) {finish = currentCell; exitDir = "S";}
+        if(currentCell.i == 0 && !currentCell.walls[3]) {finish = currentCell; exitDir = "W";}
     }
 
     //Function to check existing walls for removal. Return matrix whose indices indicates which side can be removed.
     ArrayList<Integer> checkRemove(int index){
         ArrayList<Integer> removableWallIndice = new ArrayList<Integer>();
         for(int i = 0; i < 4; i++){
-            if(grid.get(index).walls[i] == true) {
+            if(grid.get(index).walls[i]) {
                 removableWallIndice.add(i);
             }
         }
@@ -371,11 +384,13 @@ public class MainApplet extends PApplet {
     void mapGen(){
         current.visited = true;
         exitCheck(current);
+        boolean[] nextCellWall = new boolean[4];
+
+        if(mode)         { nextCellWall = grid.get(findIndex(current.i,current.j)).walls; }
+        else if (!mode)  { nextCellWall = parseWall(wallReceive()); }
+
         if(flagMazeGen){
-            for(int i =0; i < 4; i++) {
-                if      (mode)   { map.get(findIndex(current.i,current.j)).walls[i] = grid.get(findIndex(current.i,current.j)).walls[i]; }
-                else if (!mode)  { map.get(findIndex(current.i,current.j)).walls[i] = incomingWall[i]; }
-            }
+            System.arraycopy(nextCellWall, 0, map.get(findIndex(current.i, current.j)).walls, 0, 4);
 
             Cell next = current.checkNeighborsRobot();
 
@@ -393,7 +408,7 @@ public class MainApplet extends PApplet {
                 current = stackMap.pop();
                 exitCheck(current);
 
-            } else if (stackMap.size() == 0) {
+            } else {
                 flagEnd = false;
                 //myPort.write('Z');
             }
@@ -401,6 +416,7 @@ public class MainApplet extends PApplet {
 
         if(flagEnd){
             println(nextDirection);
+            serialEventBus.send("direction", nextDirection);
             //myPort.write(nextDirection);
         }
         readyMap = false;
