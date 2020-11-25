@@ -224,10 +224,10 @@ public class Cell {
             if(count < solution.size()-2) {
                 String nextDir = solution.get(count+1);
                 println(nextDir);
-                if      (nextDir == "N") { next = map.get(findIndex(current.i   , current.j-1));  }
-                else if (nextDir == "E") { next = map.get(findIndex(current.i+1 , current.j  ));  }
-                else if (nextDir == "S") { next = map.get(findIndex(current.i   , current.j+1));  }
-                else if (nextDir == "W") { next = map.get(findIndex(current.i-1 , current.j  ));  }
+                if      (nextDir.equals("N")) { next = map.get(findIndex(current.i   , current.j-1));  }
+                else if (nextDir.equals("E")) { next = map.get(findIndex(current.i+1 , current.j  ));  }
+                else if (nextDir.equals("S")) { next = map.get(findIndex(current.i   , current.j+1));  }
+                else if (nextDir.equals("W")) { next = map.get(findIndex(current.i-1 , current.j  ));  }
                 current = next;
                 count++;
             } else {
