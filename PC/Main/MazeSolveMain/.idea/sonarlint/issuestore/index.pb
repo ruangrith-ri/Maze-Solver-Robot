@@ -9,5 +9,3 @@ S
 0src/main/java/application/applet/MainApplet.java,d\b\db185c455402d00d5442b6c1c42315f19cc57428
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-d
-4src/main/java/application/service/SerialService.java,c\f\cf4d2c9602b4b4c148de0c0470013c03649edca0
