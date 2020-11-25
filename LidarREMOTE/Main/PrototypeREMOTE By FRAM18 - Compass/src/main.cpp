@@ -20,4 +20,6 @@ void loop() {
   displayCarInfo();
   MapDisplay();
   flashLED();
+
+  // int angle = getAzimuthAngle();
 }

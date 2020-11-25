@@ -1,104 +1,31 @@
 package application.applet;
 
-import application.dataType.Cell;
-import com.fazecast.jSerialComm.SerialPort;
-import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Table;
+import application.service.SerialEventBus;
 import processing.core.PApplet;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
 
 public class MainApplet extends PApplet {
 
-    PApplet processing;
-
-    SerialPort comPort;
-
-    Table<Integer, Integer, Cell> mazeData = HashBasedTable.create();
-
-    int rowCurrentIndex = 0;
-    int columnCurrentIndex = 0;
-    int headingCurrent = 0;
+    SerialEventBus serialEventBus;
+    int i = 0;
 
     @Override
     public void settings() {
-        size(500, 500, P3D);
+        size(300, 300, P3D);
     }
 
     @Override
     public void setup() {
-        processing = this;
-
-        mazeData.put(0, 0, new Cell(0, 0));
-
-        Cell a = new Cell(1, 0);
-        a.visit();
-        mazeData.put(1, 0, a);
-
-        println(mazeData);
-        println(mazeData.get(0, 0).isSurveyComplete());
-        println(mazeData.get(1, 0).isSurveyComplete());
-
-        printArray(SerialPort.getCommPorts());
-
-        HashMap<String, String> buffer = new HashMap<>();
-
-        buffer.put("a", "dfsdfsdfsf");
-        println(buffer.get("a"));
-
-        comPort = SerialPort.getCommPort("COM6");
-        comPort.openPort();
-        comPort.setBaudRate(115200);
-        comPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0);
-
-
-        x();
-    }
-
-    void x() {
-
-        HashMap<String, String> buffer = new HashMap<>();
-
-
-        InputStream stream = comPort.getInputStream();
-        comPort.clearBreak();
-        char charTemp;
-        StringBuilder stringTemp = new StringBuilder();
-
-        try {
-            for (int j = 0; j < 5000; ++j) {
-                charTemp = ((char) stream.read());
-
-
-                if (charTemp == '[') {
-                    stringTemp.setLength(0);
-                    stringTemp.append(charTemp);
-                } else if (charTemp == ']') {
-                    stringTemp.append(charTemp);
-
-                    String topic = match(stringTemp.toString(), "(?<=\\[).+?(?=\\:)")[0];
-                    String content = match(stringTemp.toString(), "(?<=\\:).+?(?=\\])")[0];
-
-                    System.out.println("topic: " + topic + "\t  content: " + content);
-
-                    buffer.put(topic, content);
-                } else {
-                    stringTemp.append(charTemp);
-                }
-            }
-            stream.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        println(buffer);
+        serialEventBus = new SerialEventBus("COM9",115200);
     }
 
     @Override
     public void draw() {
         background(255, 0, 0);
+
+        serialEventBus.send("PC", String.valueOf(i++));
+        serialEventBus.send("PC2", String.valueOf(i++));
+
+        print(serialEventBus.showAll());
+        println(serialEventBus.readNonContain("ESP"));
     }
 }
