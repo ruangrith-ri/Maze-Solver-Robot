@@ -15,17 +15,17 @@ public class MainApplet extends PApplet {
 
     @Override
     public void setup() {
-        serialEventBus = new SerialEventBus("COM9",115200);
+        serialEventBus = new SerialEventBus("COM8",115200);
     }
 
     @Override
     public void draw() {
         background(255, 0, 0);
 
-        serialEventBus.send("PC", String.valueOf(i++));
-        serialEventBus.send("PC2", String.valueOf(i++));
+        println(serialEventBus.showAll());
 
-        print(serialEventBus.showAll());
-        println(serialEventBus.readNonContain("ESP"));
+        if(serialEventBus.readNonContain("wallN").equals("1")) {
+            serialEventBus.send("direction", "N");
+        }
     }
 }

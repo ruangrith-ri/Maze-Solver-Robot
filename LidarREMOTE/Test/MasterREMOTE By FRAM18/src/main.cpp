@@ -27,15 +27,25 @@ void loop() {
 
   // SerialEventBus::send("A", "N");
   // SerialEventBus::send("B", String(456));
-  SerialEventBus::send("ESP", String(i++));
-  SerialEventBus::send("ESP2", String(i++));
+  // SerialEventBus::send("ESP", String(i++));
+  // SerialEventBus::send("ESP2", String(i++));
   // SerialEventBus::send("D", "Hello");
+
+  M5.Lcd.setCursor(0, 40, 2);
+  M5.Lcd.print("Test Read : ");
+  M5.Lcd.print(SerialEventBus::read("PC"));
 
   M5.Lcd.setCursor(0, 60, 2);
   M5.Lcd.print("Test Send : ");
   M5.Lcd.print(SerialEventBus::read("ESP"));
 
-  M5.Lcd.setCursor(0, 40, 2);
-  M5.Lcd.print("Test Read : ");
-  M5.Lcd.print(SerialEventBus::read("PC"));
+  M5.Lcd.setCursor(0, 80, 2);
+  M5.Lcd.print("Test Send : ");
+  M5.Lcd.print(SerialEventBus::read("ESPfgkjnojfgg") == ""
+                   ? "NO DATA"
+                   : SerialEventBus::read("ESPfgkjnojfgg"));
+
+  Serial.print("N/A Topic : " + (SerialEventBus::read("ESPfgkjnojfgg") == ""
+                                     ? "NO DATA"
+                                     : SerialEventBus::read("ESPfgkjnojfgg")));
 }

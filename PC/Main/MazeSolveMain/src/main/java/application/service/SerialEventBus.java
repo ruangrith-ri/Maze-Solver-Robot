@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class SerialEventBus extends Thread{
+public class SerialEventBus extends Thread {
     HashMap<String, String> hashMap;
     SerialPort port;
 
@@ -45,7 +45,7 @@ public class SerialEventBus extends Thread{
 
     @Override
     public void run() {
-        while(true) {
+        while (true) {
             inputBuffer = "";
             inputBuffer = scanner.nextLine();
 
@@ -71,7 +71,7 @@ public class SerialEventBus extends Thread{
         port.openPort();
     }
 
-    public void send(String topic, String content){
+    public void send(String topic, String content) {
         outputStringBuilder.setLength(0);
         outputStringBuilder.append('[')
                 .append(topic)
@@ -83,13 +83,13 @@ public class SerialEventBus extends Thread{
     }
 
     public String read(String topic) {
-        return hashMap.get(topic);
+        return hashMap.getOrDefault(topic, "");
     }
 
     public String readNonContain(String topic) {
-        String buffer = hashMap.get(topic);
+        String buffer = read(topic);
         hashMap.put(topic, "");
-        send(topic,hashMap.get(topic));
+        send(topic, hashMap.get(topic));
         return buffer;
     }
 

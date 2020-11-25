@@ -5,7 +5,6 @@ import controlP5.ControlEvent;
 import controlP5.ControlP5;
 import processing.core.PApplet;
 
-
 import java.util.ArrayList;
 import java.util.Stack;
 
