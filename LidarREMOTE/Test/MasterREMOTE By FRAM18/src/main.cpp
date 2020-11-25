@@ -45,7 +45,7 @@ void loop() {
                    ? "NO DATA"
                    : SerialEventBus::read("ESPfgkjnojfgg"));
 
-  Serial.print("N/A Topic : " + (SerialEventBus::read("ESPfgkjnojfgg") == ""
+  Serial.println("N/A Topic : " + (SerialEventBus::read("ESPfgkjnojfgg") == ""
                                      ? "NO DATA"
                                      : SerialEventBus::read("ESPfgkjnojfgg")));
 }

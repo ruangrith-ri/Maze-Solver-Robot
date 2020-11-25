@@ -13,3 +13,5 @@
 ,src/main/java/application/dataType/Cell.java,9\4\94c7f6e4b1435f569a36e28ba092af9e6786d606
 S
 #src/main/java/application/Main.java,5\6\5688ea0c4a98f9f292a9a6d1f18b03db74a806d0
+e
+5src/main/java/application/service/SerialEventBus.java,c\2\c250730540f9b6780273496a1328df7fa1da8e80

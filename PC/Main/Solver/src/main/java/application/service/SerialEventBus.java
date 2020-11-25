@@ -6,9 +6,10 @@ import processing.core.PApplet;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class SerialEventBus extends Thread{
+public class SerialEventBus extends Thread {
     HashMap<String, String> hashMap;
     SerialPort port;
 
@@ -45,11 +46,13 @@ public class SerialEventBus extends Thread{
 
     @Override
     public void run() {
-        while(true) {
+        while (true) {
             inputBuffer = "";
+
             inputBuffer = scanner.nextLine();
 
             try {
+
                 int first = inputBuffer.indexOf('[');
                 int middle = inputBuffer.indexOf(':');
                 int last = inputBuffer.indexOf(']');
@@ -59,8 +62,8 @@ public class SerialEventBus extends Thread{
                     String content = PApplet.match(inputBuffer, "(?<=\\:).+?(?=\\])")[0];
 
                     hashMap.put(topic, content);
-                    //System.out.println("raw" + input + " \ttopic : " + topic + "\tcontent : " + content);
 
+                    System.out.println(" \ttopic : " + topic + "\tcontent : " + content);
                 }
             } catch (Exception ignore) {
             }
@@ -71,7 +74,7 @@ public class SerialEventBus extends Thread{
         port.openPort();
     }
 
-    public void send(String topic, String content){
+    public void send(String topic, String content) {
         outputStringBuilder.setLength(0);
         outputStringBuilder.append('[')
                 .append(topic)
@@ -83,13 +86,13 @@ public class SerialEventBus extends Thread{
     }
 
     public String read(String topic) {
-        return hashMap.get(topic);
+        return hashMap.getOrDefault(topic, "");
     }
 
     public String readNonContain(String topic) {
-        String buffer = hashMap.get(topic);
+        String buffer = read(topic);
         hashMap.put(topic, "");
-        send(topic,hashMap.get(topic));
+        send(topic, hashMap.get(topic));
         return buffer;
     }
 

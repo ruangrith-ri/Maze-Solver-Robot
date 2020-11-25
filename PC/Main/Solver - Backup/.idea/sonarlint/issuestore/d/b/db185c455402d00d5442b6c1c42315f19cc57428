@@ -1,0 +1,49 @@
+
+i
+java:S2184a"GCast one of the operands of this multiplication operation to a "float".(òÒ‰£ùÿÿÿÿ8Ñ¾Õ…à.
+|
+java:S1104"ZMake serialEventBus a static final constant or non-public and provide accessors if needed.(ÊÒô…ıÿÿÿÿ8ØÏ†‰à.
+i
+java:S2184a"GCast one of the operands of this multiplication operation to a "float".(òÒ‰£ùÿÿÿÿ8Ñ¾Õ…à.
+U
+java:S1444"3Make this "public static mazeSizeIndex" field final(¿é‹’ıÿÿÿÿ8·Òé†à.
+^
+java:S2184p"ACast one of the operands of this addition operation to a "float".(ß¥¨—8çú¾…à.
+P
+java:S1444".Make this "public static mazeData" field final(Íâ©’ÿÿÿÿÿ8‰½‘†à.
+^
+java:S2184h"ACast one of the operands of this addition operation to a "float".(Üá–š8„«»…à.
+c
+java:S2184t"ACast one of the operands of this addition operation to a "float".(óÚ’¦şÿÿÿÿ8ºÀ…à.
+V
+java:S1444"4Make this "public static serialEventBus" field final(ÊÒô…ıÿÿÿÿ8ØÏ†‰à.
+M
+java:S1172€"/Remove this unused method parameter "theValue".(Ÿà»İ8Ÿ‹—†à.
+^
+java:S2184p"ACast one of the operands of this addition operation to a "float".(ß¥¨—8·ğ¼…à.
+y
+java:S1104"WMake currentCell a static final constant or non-public and provide accessors if needed.(‚¦ÊÎÿÿÿÿÿ8ÿÿ†à.
+^
+java:S2184p"ACast one of the operands of this addition operation to a "float".(ß¥¨—8çú¾…à.
+c
+java:S2184l"ACast one of the operands of this addition operation to a "float".(—±‚¦ûÿÿÿÿ8·ğ¼…à.
+{
+java:S1104"YMake mazeSizeIndex a static final constant or non-public and provide accessors if needed.(¿é‹’ıÿÿÿÿ8·Òé†à.
+o
+java:S3776N"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ÄÿÍ¤8Ù†¶…à.
+v
+java:S1104"TMake mazeData a static final constant or non-public and provide accessors if needed.(Íâ©’ÿÿÿÿÿ8‰½‘†à.
+s
+java:S1104"VMake processing a static final constant or non-public and provide accessors if needed.(äÅ‰Ñ8ÈŸÅ„à.
+c
+java:S2184l"ACast one of the operands of this addition operation to a "float".(—±‚¦ûÿÿÿÿ8ëó½…à.
+S
+java:S2696I"6Make the enclosing method "static" or remove this set.(©âÄ8ÿÿ†à.
+]	java:S125+"<This block of commented-out lines of code should be removed.(ØøÃ·ùÿÿÿÿ8ˆşê„à.
+c
+java:S2184l"ACast one of the operands of this addition operation to a "float".(—±‚¦ûÿÿÿÿ8ôÏ½…à.
+S
+java:S1444"1Make this "public static currentCell" field final(‚¦ÊÎÿÿÿÿÿ8ÿÿ†à.
+T
+java:S2696"6Make the enclosing method "static" or remove this set.(ùë„8Æñ†‰à.
+]	java:S125B"<This block of commented-out lines of code should be removed.(ÊìÇäøÿÿÿÿ8êÂİˆà.

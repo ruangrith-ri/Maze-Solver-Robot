@@ -4,6 +4,7 @@ public class Cell {
     private int columnIndex, rowIndex;
 
     public boolean isVisit = false;
+    public boolean isSolutionPart = false;
 
     public Result N;
     public Result E;

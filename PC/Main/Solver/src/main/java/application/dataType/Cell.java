@@ -78,7 +78,9 @@ public class Cell {
         if(!south.visited && canMove(current.i, current.j, 2, map)) neighbors.add(south);
         if(!west.visited  && canMove(current.i, current.j, 3, map)) neighbors.add(west);
 
-        if (neighbors.size() > 0){
+        println("Select" + neighbors.toString());
+
+        if (!neighbors.isEmpty()){
             int r = new Random().nextInt(neighbors.size());
             return neighbors.get(r);
         }
