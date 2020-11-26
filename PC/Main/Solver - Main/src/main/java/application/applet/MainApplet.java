@@ -1,8 +1,9 @@
 package application.applet;
 
+import application.controller.MazeSolveController;
 import application.dataType.Cell;
 import application.dataType.Result;
-import application.service.MazeExplore;
+import application.controller.MazeExploreController;
 import application.service.SerialEventBus;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
@@ -14,9 +15,9 @@ public class MainApplet extends PApplet {
 
     public PApplet processing;
 
-    ControlP5 cp5;
+    /*-------------------------------------------------------------------------------------------*/
 
-    MazeExplore me;
+    ControlP5 cp5;
 
     public static SerialEventBus serialEventBus;
     public static Table<Integer, Integer, Cell> mazeData = HashBasedTable.create();
@@ -24,23 +25,22 @@ public class MainApplet extends PApplet {
 
     /*-------------------------------------------------------------------------------------------*/
 
-    int boxSize = 80;
-
     public static int mazeSizeIndex = 10;
-    int columnInit = 0;
-    int rowInit = 0;
+    int columnInit = 9;
+    int rowInit = 9;
+
+    int boxSize = 80;
     int mazeSize = boxSize * mazeSizeIndex;
 
     /*-------------------------------------------------------------------------------------------*/
 
     @Override
     public void settings() {
-        size(1220, 800);
+        size(mazeSize + 250, mazeSize);
     }
 
     @Override
     public void setup() {
-        //Cell.setCanvas(super.g);
         processing = this;
 
         background(0);
@@ -50,11 +50,11 @@ public class MainApplet extends PApplet {
         cp5 = new ControlP5(this);
 
         cp5.addButton("explore")
-                .setPosition(950, 60)
+                .setPosition(mazeSize + 25, 60)
                 .setSize(200, 30);
 
         cp5.addButton("solve")
-                .setPosition(950, 100)
+                .setPosition(mazeSize + 25, 120)
                 .setSize(200, 30);
 
         for (int i = 0; i < mazeSizeIndex; i++) {
@@ -62,58 +62,55 @@ public class MainApplet extends PApplet {
                 mazeData.put(i, j, new Cell(i, j));
             }
         }
-/*
-        Cell cell = mazeData.get(0, 0);
-        cell.setE(Result.WALL);
 
-        cell = mazeData.get(4, 3);
-        cell.isVisit = true;
-        cell.isSolutionPath = true;
-*/
         currentCell = mazeData.get(columnInit, rowInit);
         currentCell.setS(Result.START);
     }
 
     @Override
     public void draw() {
-        background(32, 0, 0);
+        background(0, 0, 0);
 
-        for (int i = 0; i < mazeSizeIndex; i++) {
-            for (int j = 0; j < mazeSizeIndex; j++) {
+        for (int column = 0; column < mazeSizeIndex; column++) {
+            for (int row = 0; row < mazeSizeIndex; row++) {
                 pushMatrix();
 
-                Cell cell = mazeData.get(i, j);
+                Cell cell = mazeData.get(column, row);
 
                 if (cell == currentCell) {
                     fill(0, 0, 200);
-                } else if (cell.isSolutionPath) {
-                    fill(200, 0, 0);
-                } else if (cell.isVisit) {
-                    fill(0, 200, 0);
                 } else {
-                    fill(255);
+                    assert cell != null;
+                    if (cell.isSolutionPath) {
+                        fill(200, 0, 0);
+                    } else if (cell.isVisit) {
+                        fill(0, 200, 0);
+                    } else {
+                        fill(240);
+                    }
                 }
                 noStroke();
-                translate(i * boxSize, j * boxSize);
-                rect(i, j, boxSize, boxSize);
+                translate(column * boxSize, row * boxSize);
+                rect(column, row, boxSize, boxSize);
 
 
                 strokeWeight(10);
+                assert cell != null;
                 if (cell.N == Result.WALL) {
                     stroke(0);
-                    line(i, j, i + boxSize, j);
+                    line(column, row, column + boxSize, row);
                 }
                 if (cell.S == Result.WALL) {
                     stroke(0);
-                    line(i, j + boxSize, i + boxSize, j + boxSize);
+                    line(column, row + boxSize, column + boxSize, row + boxSize);
                 }
                 if (cell.E == Result.WALL) {
                     stroke(0);
-                    line(i + boxSize, j, i + boxSize, j + boxSize);
+                    line(column + boxSize, row, column + boxSize, row + boxSize);
                 }
                 if (cell.W == Result.WALL) {
                     stroke(0);
-                    line(i, j, i, j + boxSize);
+                    line(column, row, column, row + boxSize);
                 }
 
                 popMatrix();
@@ -127,6 +124,10 @@ public class MainApplet extends PApplet {
 
     public void explore(int theValue) {
         serialEventBus = new SerialEventBus("COM8", 115200);
-        me = new MazeExplore();
+        MazeExploreController mazeExploreController = new MazeExploreController();
+    }
+
+    public void solve(int theValue) {
+        MazeSolveController mazeSolveController = new MazeSolveController();
     }
 }

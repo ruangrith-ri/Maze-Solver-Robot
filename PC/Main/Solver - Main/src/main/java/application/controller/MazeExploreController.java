@@ -1,21 +1,23 @@
-package application.service;
+package application.controller;
 
 import application.dataType.Cell;
 import application.dataType.Direction;
 import application.dataType.Result;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 import static application.applet.MainApplet.*;
 
 
-public class MazeExplore extends Thread {
+public class MazeExploreController extends Thread {
 
-    Stack<Cell> depthCellStack = new Stack<>();
+    Deque<Cell> depthCellStack = new ArrayDeque<>();
 
-    final int FRAMERATE = 1000 / 60;
+    private static final int FRAMERATE = 1000 / 60;
 
-    public MazeExplore() {
+    public MazeExploreController() {
         this.start();
     }
 
@@ -23,7 +25,6 @@ public class MazeExplore extends Thread {
     public void run() {
         while (true) {
             loop();
-
             try {
                 Thread.sleep(FRAMERATE);
             } catch (InterruptedException ignore) {
@@ -34,7 +35,7 @@ public class MazeExplore extends Thread {
     void loop() {
 
         try {
-            if (/*currentCell.isSurveyComplete() &&*/ receiveData(currentCell)) {
+            if (receiveData(currentCell)) {
                 Direction nextMovement = nextMoveNeighborsByPriority(currentCell);
 
                 if (nextMovement == null) {
@@ -51,7 +52,7 @@ public class MazeExplore extends Thread {
                 serialEventBus.send("direction", nextMovement.toString());
                 currentCell.visit();
 
-                moveCellFormDirection(currentCell, nextMovement);
+                currentCell = moveCellFormDirection(currentCell, nextMovement);
             }
 
         } catch (Exception ignore) {
@@ -132,19 +133,20 @@ public class MazeExplore extends Thread {
         return null;
     }
 
-    void moveCellFormDirection(Cell cell, Direction direction) {
+    Cell moveCellFormDirection(Cell cell, Direction direction) {
         int column = cell.columnIndex;
         int row = cell.rowIndex;
 
         if (direction == Direction.N) {
-            currentCell = mazeData.get(column, row - 1);
+            return mazeData.get(column, row - 1);
         } else if (direction == Direction.E) {
-            currentCell = mazeData.get(column + 1, row);
+            return mazeData.get(column + 1, row);
         } else if (direction == Direction.S) {
-            currentCell = mazeData.get(column, row + 1);
+            return mazeData.get(column, row + 1);
         } else if (direction == Direction.W) {
-            currentCell = mazeData.get(column - 1, row);
+            return mazeData.get(column - 1, row);
         }
+        return null;
     }
 
     Direction getExitOfMaze(Cell cell) {
@@ -168,17 +170,16 @@ public class MazeExplore extends Thread {
     }
 
     Direction getMovementFormTargetCell(Cell currentCell, Cell targetCell) {
+
+        System.out.println("LOOP2 N");
+
         if (targetCell.columnIndex == currentCell.columnIndex && targetCell.rowIndex == currentCell.rowIndex - 1) {
-            System.out.println("LOOP2 N");
             return Direction.N;
         } else if (targetCell.columnIndex == currentCell.columnIndex + 1 && targetCell.rowIndex == currentCell.rowIndex) {
-            System.out.println("LOOP2 E");
             return Direction.E;
         } else if (targetCell.columnIndex == currentCell.columnIndex && targetCell.rowIndex == currentCell.rowIndex + 1) {
-            System.out.println("LOOP2 S");
             return Direction.S;
         } else if (targetCell.columnIndex == currentCell.columnIndex - 1 && targetCell.rowIndex == currentCell.rowIndex) {
-            System.out.println("LOOP2 W");
             return Direction.W;
         }
         System.out.println("LOOP2 NULL");

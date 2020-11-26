@@ -1,26 +1,26 @@
 
-j
-java:S1104"MMake S a static final constant or non-public and provide accessors if needed.(¶‰¢8€ß„à.
-u
-java:S1104"SMake isVisit a static final constant or non-public and provide accessors if needed.(õù¿šøÿÿÿÿ8€ß„à.
-o
-java:S1104"MMake W a static final constant or non-public and provide accessors if needed.(æïŞ şÿÿÿÿ8€ß„à.
-h	java:S116	"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºˆ´Ï8€ß„à.
 w
 java:S1104"ZMake isSolutionPath a static final constant or non-public and provide accessors if needed.(îáˆ¸8«¤¦…à.
 m	java:S116
 "LRename this field "E" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãÚÖœüÿÿÿÿ8€ß„à.
-j
-java:S1104	"MMake N a static final constant or non-public and provide accessors if needed.(ºˆ´Ï8€ß„à.
-m	java:S116"LRename this field "W" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æïŞ şÿÿÿÿ8€ß„à.
-H
-java:S1659"&Declare "rowIndex" on a separate line.(ÄüéĞúÿÿÿÿ8€ß„à.
-h	java:S116"LRename this field "S" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶‰¢8€ß„à.
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”´Æ¨
+o
+java:S1104"MMake W a static final constant or non-public and provide accessors if needed.(æïŞ şÿÿÿÿ8€ß„à.
+u
+java:S1104"SMake isVisit a static final constant or non-public and provide accessors if needed.(õù¿šøÿÿÿÿ8€ß„à.
+h	java:S116"LRename this field "S" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶‰¢8€ß„à.
 o
 java:S1104
 "MMake E a static final constant or non-public and provide accessors if needed.(ãÚÖœüÿÿÿÿ8€ß„à.
-y
-java:S1104"WMake columnIndex a static final constant or non-public and provide accessors if needed.(ÄüéĞúÿÿÿÿ8¾Ìæ†à.
+H
+java:S1659"&Declare "rowIndex" on a separate line.(ÄüéĞúÿÿÿÿ8€ß„à.
+j
+java:S1104"MMake S a static final constant or non-public and provide accessors if needed.(¶‰¢8€ß„à.
 v
 java:S1104"TMake rowIndex a static final constant or non-public and provide accessors if needed.(ÄüéĞúÿÿÿÿ8¾Ìæ†à.
+j
+java:S1104	"MMake N a static final constant or non-public and provide accessors if needed.(ºˆ´Ï8€ß„à.
+m	java:S116"LRename this field "W" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æïŞ şÿÿÿÿ8€ß„à.
+h	java:S116	"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºˆ´Ï8€ß„à.
+y
+java:S1104"WMake columnIndex a static final constant or non-public and provide accessors if needed.(ÄüéĞúÿÿÿÿ8¾Ìæ†à.

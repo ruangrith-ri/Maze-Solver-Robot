@@ -19,5 +19,7 @@ a
 1src/main/java/application/dataType/Direction.java,1\3\13bd440b39cce58328d3bbe86cba0e1a203f976c
 e
 5src/main/java/application/service/SerialEventBus.java,c\2\c250730540f9b6780273496a1328df7fa1da8e80
-b
-2src/main/java/application/service/MazeExplore.java,e\b\eb6ab2a893161065246a335af6c7af69b9d4721a
+m
+=src/main/java/application/controller/MazeSolveController.java,9\2\9222a8fa8f9e290bafffbb10ebc6197c2305c5cd
+o
+?src/main/java/application/controller/MazeExploreController.java,0\b\0b763a449926cb6198aa095ae546fb1145162d8c
