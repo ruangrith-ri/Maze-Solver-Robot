@@ -1,0 +1,23 @@
+
+U	java:S106d"9Replace this use of System.out or System.err by a logger.(‘åù8ˆö‚Œà.
+Q
+java:S1066o"/Merge this if statement with the enclosing one.(ê°î²úÿÿÿÿ8ˆö‚Œà.
+Z	java:S106;"9Replace this use of System.out or System.err by a logger.(›Àıûÿÿÿÿ8îÆ°Œà.
+Q
+java:S1066{"/Merge this if statement with the enclosing one.(ÄõÆíÿÿÿÿÿ8ˆö‚Œà.
+V
+java:S4973\"9Use the "equals" method if value comparison was intended.(°—¸à8—®ÇŒà.
+L
+java:S1066u"/Merge this if statement with the enclosing one.(Àş²¥8ˆö‚Œà.
+^
+java:S1126\"AReplace this if-then-else statement by a single return statement.(°—¸à8—®ÇŒà.
+t
+java:S3776b"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(©À´‹ûÿÿÿÿ8ˆö‚Œà.
+S
+java:S26967"6Make the enclosing method "static" or remove this set.(êÇ‚ù8é¬üà.
+U	java:S106¹"9Replace this use of System.out or System.err by a logger.(‰ëÛB8¥…ğà.
+R
+java:S1066"/Merge this if statement with the enclosing one.(È”¸êùÿÿÿÿ8ˆö‚Œà.
+N
+java:S1128	",Remove this unused import 'java.util.Stack'.(ŞÈ†üúÿÿÿÿ8ûÉÄà.
+[	java:S106®"9Replace this use of System.out or System.err by a logger.(’Ğş ÿÿÿÿÿ8¾¸ïà.
