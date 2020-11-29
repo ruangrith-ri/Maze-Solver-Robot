@@ -1,39 +1,10 @@
 
-[	java:S106¼"9Replace this use of System.out or System.err by a logger.(İé‚ÿÿÿÿÿ8·ßÖ§à.
-[	java:S106·"9Replace this use of System.out or System.err by a logger.(•…¦Äúÿÿÿÿ8â‹Õ§à.
-Œ
-java:S1130¢"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(ßó¦·øÿÿÿÿ8Ïƒµ§à.
-g
-java:S2259>"JA "NullPointerException" could be thrown; "nextMovement" is nullable here.(¢Œ´µ8‰ßê«à.
-X	java:S125G"<This block of commented-out lines of code should be removed.(ìëÍŒ8ã±Ì§à.
-Y	java:S125¿"<This block of commented-out lines of code should be removed.(éìÚ”8‘²§¨à.
-U	java:S106>"9Replace this use of System.out or System.err by a logger.(¢Œ´µ8…‡™à.
-U	java:S106~"9Replace this use of System.out or System.err by a logger.(‘åù8ˆö‚Œà.
-t
-java:S3776|"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(©À´‹ûÿÿÿÿ8ˆö‚Œà.
-R
-java:S1066•"/Merge this if statement with the enclosing one.(ÄõÆíÿÿÿÿÿ8ˆö‚Œà.
-X	java:S125,"<This block of commented-out lines of code should be removed.(¤¥ú8«úåšà.
-M
-java:S1066"/Merge this if statement with the enclosing one.(Àş²¥8ˆö‚Œà.
-R
-java:S1066‰"/Merge this if statement with the enclosing one.(ê°î²úÿÿÿÿ8ˆö‚Œà.
-R
-java:S1066›"/Merge this if statement with the enclosing one.(È”¸êùÿÿÿÿ8ˆö‚Œà.
-U	java:S106Ş"9Replace this use of System.out or System.err by a logger.(‰ëÛB8¥…ğà.
-[	java:S106Æ"9Replace this use of System.out or System.err by a logger.(Œ¼¥üÿÿÿÿ8ÜÖÎ§à.
-]	java:S125B"<This block of commented-out lines of code should be removed.(Œ¨ÌÔşÿÿÿÿ8³Øè«à.
-Y	java:S125º"<This block of commented-out lines of code should be removed.(ÇÁØĞ8‘²§¨à.
-^	java:S125å"<This block of commented-out lines of code should be removed.(Öˆ¨Îıÿÿÿÿ8÷†Š˜à.
-^	java:S125Ä"<This block of commented-out lines of code should be removed.(µÛ‘“şÿÿÿÿ8‘²§¨à.
-^	java:S125µ"<This block of commented-out lines of code should be removed.(Âà´úÿÿÿÿ8‘²§¨à.
-X	java:S125K"<This block of commented-out lines of code should be removed.(Êö¶8ËØË§à.
-Z	java:S1068"9Replace this use of System.out or System.err by a logger.(¥ÇõÕùÿÿÿÿ8‹­é«à.
-U	java:S106Á"9Replace this use of System.out or System.err by a logger.(ğ€ßg8·ßÖ§à.
-V	java:S106Ó"9Replace this use of System.out or System.err by a logger.(ˆÜ¨8 ©ùªà.
 X
-java:S2696D"6Make the enclosing method "static" or remove this set.(£õ›Ôÿÿÿÿÿ8ª¥Î¬à.
-T
-java:S1135B"2Complete the task associated to this TODO comment.(Œ¨ÌÔşÿÿÿÿ8À´è«à.
-c
-java:S1126v"AReplace this if-then-else statement by a single return statement.(ŒÅ©ùÿÿÿÿ8¬ÎÜ¬à.
+java:S2696K"6Make the enclosing method "static" or remove this set.(¬Îâ€ùÿÿÿÿ8šé¬Åà.
+g
+java:S2259D"JA "NullPointerException" could be thrown; "nextMovement" is nullable here.(×ìÏ¢8µÌı½à.
+O
+java:S1068"-Remove this unused "startCell" private field.(ÒãØşÿÿÿÿ8÷†¼à.
+o
+java:S3776V"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(å–ƒÉ8ÃÜ›Åà.
+^	java:S125Œ"<This block of commented-out lines of code should be removed.(Öˆ¨Îıÿÿÿÿ8« ×²à.

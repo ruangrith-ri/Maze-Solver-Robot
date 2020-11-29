@@ -1,17 +1,14 @@
 package application.controller;
 
-import application.dataType.Cell;
-import application.dataType.Direction;
-import application.dataType.Result;
+import application.data.Cell;
+import application.data.Direction;
+import application.data.Result;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 import static application.applet.MainApplet.*;
-import static application.controller.MazeExploreController.getCellFromDirection;
-import static application.controller.MazeExploreController.getMovementFormTargetCell;
+import static application.util.CellOperation.getCellFromDirection;
+import static application.util.CellOperation.getMovementFormTargetCell;
 
 public class MazeSolveController extends Thread {
 
@@ -19,8 +16,10 @@ public class MazeSolveController extends Thread {
     Deque<Cell> robotCommandCellStack = new ArrayDeque<>();
 
     private static final int FRAMERATE = 1000 / 60;
+    private Cell startCell;
 
-    public MazeSolveController() {
+    public MazeSolveController(Cell startCell) {
+        this.startCell = startCell;
         this.start();
     }
 
@@ -35,16 +34,14 @@ public class MazeSolveController extends Thread {
         setup();
         while (runnerFlag) {
             loop();
-            try {
-                Thread.sleep(FRAMERATE);
-            } catch (InterruptedException ignore) {
-            }
+            delay(FRAMERATE);
         }
+        serialEventBus.send("fin", "1");
     }
 
     void setup() {
         clearOldVisit();
-        pendingComputeCell.add(mazeData.get(columnInit, rowInit));
+        pendingComputeCell.add(startCell);
 
         computeAddPendingQueue();
         reverseMovement();
@@ -59,30 +56,26 @@ public class MazeSolveController extends Thread {
             moveRobot(robotCommandCellStack.pop());
         } else if (incomingData() && ! robotCommandCellStack.isEmpty()) {
             moveRobot(robotCommandCellStack.pop());
-            inverstState();
+            invertState();
         } else if (incomingData() && robotCommandCellStack.isEmpty() && (! isFinish)) {
             isFinish = true;
 
             Direction nextMovement = getExitDirection(currentCell);
-            System.out.println("Exe : " + nextMovement.toString());
-            serialEventBus.send("direction", nextMovement.toString());
+            System.out.println("EXECUTE : " + nextMovement.toStringCommand());
+            serialEventBus.send("direction", nextMovement.toStringCommand());
 
             System.out.println("LAST MOVE");
-            inverstState();
-        }
+            invertState();
 
-        System.out.println("FLAG :" + incomingData() + "  " + robotCommandCellStack.isEmpty() + " " + (! isFinish));
+            stopThread();
+        }
     }
 
     Direction getExitDirection(Cell cell) {
-        if (cell.N.equals(Result.EXIT)) {
-            return Direction.N;
-        } else if (cell.E.equals(Result.EXIT)) {
-            return Direction.E;
-        } else if (cell.S.equals(Result.EXIT)) {
-            return Direction.S;
-        } else if (cell.W.equals(Result.EXIT)) {
-            return Direction.W;
+        for (Direction direction : Direction.values()) {
+            if (cell.getResultExplore(direction).equals(Result.EXIT)) {
+                return direction;
+            }
         }
         return null;
     }
@@ -90,8 +83,9 @@ public class MazeSolveController extends Thread {
     void moveRobot(Cell nextCell) {
         Direction nextMovement = getMovementFormTargetCell(currentCell, nextCell);
 
-        System.out.println("Exe : " + nextMovement.toString());
-        serialEventBus.send("direction", nextMovement.toString());
+        assert nextMovement != null;
+        System.out.println("Exe : " + nextMovement.toStringCommand());
+        serialEventBus.send("direction", nextMovement.toStringCommand());
 
         currentCell = nextCell;
     }
@@ -102,24 +96,22 @@ public class MazeSolveController extends Thread {
         return  (! n.equals("")) ;
     }
 
-    void inverstState() {
-        String n = serialEventBus.readNonContain("wallN");
+    void invertState() {
+        serialEventBus.readNonContain("wallN");
     }
 
     void reverseMovement() {
-        Cell startCell = mazeData.get(columnInit, rowInit);
-
         do {
-            Direction directionToRoot = currentCell.passMovementForm;
+            Direction directionToRoot = currentCell.passMovementFormLastCell;
             currentCell.solutionMark();
             robotCommandCellStack.push(currentCell);
             currentCell = getCellFromDirection(currentCell, directionToRoot);
 
-            delay(animationDelay);
+            delay(ANIMATION_DELAY);
         } while (currentCell != startCell);
 
         currentCell.solutionMark();
-        delay(animationDelay);
+        delay(ANIMATION_DELAY);
     }
 
     void computeAddPendingQueue() {
@@ -131,48 +123,28 @@ public class MazeSolveController extends Thread {
 
     void moveNext() {
         currentCell = pendingComputeCell.poll();
+
+        assert currentCell != null;
         currentCell.visit();
 
-        if (currentCell.N.equals(Result.ROAD)) {
-            Cell cell = getCellFromDirection(currentCell, Direction.N);
+        for (Direction direction : Direction.values()) {
+            if (currentCell.getResultExplore(direction).equals(Result.ROAD)) {
+                Cell cell = getCellFromDirection(currentCell, direction);
 
-            if (! cell.isVisit) {
-                cell.passMovementForm = Direction.S;
-                pendingComputeCell.add(cell);
+                assert cell != null;
+                if (! cell.isVisit) {
+                    cell.passMovementFormLastCell = direction.flip();
+                    pendingComputeCell.add(cell);
+                }
             }
         }
-        if (currentCell.E.equals(Result.ROAD)) {
-            Cell cell = getCellFromDirection(currentCell, Direction.E);
-
-            if (! cell.isVisit) {
-                cell.passMovementForm = Direction.W;
-                pendingComputeCell.add(cell);
-            }
-        }
-        if (currentCell.S.equals(Result.ROAD)) {
-            Cell cell = getCellFromDirection(currentCell, Direction.S);
-
-            if (! cell.isVisit) {
-                cell.passMovementForm = Direction.N;
-                pendingComputeCell.add(cell);
-            }
-        }
-        if (currentCell.W.equals(Result.ROAD)) {
-            Cell cell = getCellFromDirection(currentCell, Direction.W);
-
-            if (! cell.isVisit) {
-                cell.passMovementForm = Direction.E;
-                pendingComputeCell.add(cell);
-            }
-        }
-
-        delay(animationDelay);
+        delay(ANIMATION_DELAY);
     }
 
     void clearOldVisit() {
-        for (int i = 0; i < mazeSizeIndex; i++) {
-            for (int j = 0; j < mazeSizeIndex; j++) {
-                mazeData.get(i, j).isVisit = false;
+        for (int i = 0; i < getMazeSize(); i++) {
+            for (int j = 0; j < getMazeSize(); j++) {
+                Objects.requireNonNull(MAZE_DATA.get(i, j)).isVisit = false;
             }
         }
     }

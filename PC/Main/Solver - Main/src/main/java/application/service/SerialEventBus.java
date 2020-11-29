@@ -6,7 +6,6 @@ import processing.core.PApplet;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class SerialEventBus extends Thread {
@@ -21,7 +20,6 @@ public class SerialEventBus extends Thread {
 
     public SerialEventBus(String portName) {
         port = SerialPort.getCommPort(portName);
-
         init();
     }
 
@@ -78,7 +76,8 @@ public class SerialEventBus extends Thread {
         outputStringBuilder.append('[')
                 .append(topic)
                 .append(':')
-                .append(content).append(']');
+                .append(content)
+                .append(']');
 
         output.println(outputStringBuilder);
         hashMap.put(topic, content);
@@ -90,12 +89,14 @@ public class SerialEventBus extends Thread {
 
     public String readNonContain(String topic) {
         String buffer = read(topic);
-        hashMap.put(topic, "");
-        send(topic, hashMap.get(topic));
+        if (! buffer.equals("")) {
+            hashMap.put(topic, "");
+            send(topic, hashMap.get(topic));
+        }
         return buffer;
     }
 
-    public Map<String, String> showAll() {
+    public Map<String, String> showAllTopicContent() {
         return hashMap;
     }
 }

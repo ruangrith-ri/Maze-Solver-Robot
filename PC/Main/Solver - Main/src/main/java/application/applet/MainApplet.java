@@ -1,8 +1,9 @@
 package application.applet;
 
 import application.controller.MazeSolveController;
-import application.dataType.Cell;
-import application.dataType.Result;
+import application.data.Cell;
+import application.data.Direction;
+import application.data.Result;
 import application.controller.MazeExploreController;
 import application.service.SerialEventBus;
 import com.google.common.collect.HashBasedTable;
@@ -17,29 +18,33 @@ public class MainApplet extends PApplet {
 
     /*-------------------------------------------------------------------------------------------*/
 
-    ControlP5 cp5;
+    ControlP5 controlP5;
 
-    public static final int animationDelay = 200;
+    public static final int ANIMATION_DELAY = 200;
 
-    public static SerialEventBus serialEventBus;
-    public static Table<Integer, Integer, Cell> mazeData = HashBasedTable.create();
+    public static final Table<Integer, Integer, Cell> MAZE_DATA = HashBasedTable.create();
+
     public static Cell currentCell;
     public static Cell finalCell;
 
     /*-------------------------------------------------------------------------------------------*/
 
-    public static int mazeSizeIndex = 10;
-    public static int columnInit = 0/*mazeSizeIndex - 1*/;
-    public static int rowInit = 0 /*mazeSizeIndex - 1*/;
+    private static final int MAZE_SIZE = 4;
+    private static final int COLUMN_INIT =  /*mazeSizeIndex - 1*/0;
+    private static final int ROW_INIT = /*mazeSizeIndex - 1*/0;
 
-    int boxSize = 80;
-    int mazeSize = boxSize * mazeSizeIndex;
+    private static final int CELL_SIZE = 80;
+    private static final int MAZE_DRAW_SIZE = CELL_SIZE * MAZE_SIZE;
+
+    public static int getMazeSize() {
+        return MAZE_SIZE;
+    }
 
     /*-------------------------------------------------------------------------------------------*/
 
     @Override
     public void settings() {
-        size(mazeSize + 250, mazeSize + 50);
+        size(MAZE_DRAW_SIZE + 250, MAZE_DRAW_SIZE + 50);
     }
 
     @Override
@@ -49,109 +54,123 @@ public class MainApplet extends PApplet {
         background(0);
         frameRate(60);
 
-        cp5 = new ControlP5(this);
+        initGraphicUserInterface();
 
-        cp5.addButton("explore")
-                .setPosition(mazeSize + 100, 50)
-                .setSize(100, 50);
-
-        cp5.addButton("solve")
-                .setPosition(mazeSize + 100, 150)
-                .setSize(100, 50);
-
-        for (int i = 0; i < mazeSizeIndex; i++) {
-            for (int j = 0; j < mazeSizeIndex; j++) {
-                mazeData.put(i, j, new Cell(i, j));
+        for (int i = 0; i < MAZE_SIZE; i++) {
+            for (int j = 0; j < MAZE_SIZE; j++) {
+                MAZE_DATA.put(i, j, new Cell(i, j));
             }
         }
 
-        currentCell = mazeData.get(columnInit, rowInit);
-        currentCell.setS(Result.START);
+        currentCell = MAZE_DATA.get(COLUMN_INIT, ROW_INIT);
+    }
+
+    private void initGraphicUserInterface() {
+        controlP5 = new ControlP5(this);
+
+        controlP5.addButton("explore")
+                .setPosition(MAZE_DRAW_SIZE + 100f, 25)
+                .setSize(100, 50);
+
+        controlP5.addButton("solve")
+                .setPosition(MAZE_DRAW_SIZE + 100f, 100)
+                .setSize(100, 50);
     }
 
     @Override
     public void draw() {
-        background(32);
+        background(64);
 
         pushMatrix();
-        translate(25,25);
+        translate(25, 25);
 
-        for (int column = 0; column < mazeSizeIndex; column++) {
-            for (int row = 0; row < mazeSizeIndex; row++) {
+        drawMazeCell();
+        drawMazeGridline();
+
+        popMatrix();
+    }
+
+    private void drawMazeGridline() {
+        for (int column = 0; column < MAZE_SIZE; column++) {
+            for (int row = 0; row < MAZE_SIZE; row++) {
                 pushMatrix();
 
-                Cell cell = mazeData.get(column, row);
+                Cell cell = MAZE_DATA.get(column, row);
+                translate(column * CELL_SIZE, row * CELL_SIZE);
+
+                strokeWeight(10);
+                stroke(0);
+
+                assert cell != null;
+                for (Direction direction : Direction.values()) {
+                    if (cell.getResultExplore(direction) == Result.WALL) {
+                        switch (direction) {
+                            case NORTH:
+                                line(column, row, column + (CELL_SIZE), row);
+                                break;
+                            case EAST:
+                                line(column + CELL_SIZE, row, column + CELL_SIZE, row + CELL_SIZE);
+                                break;
+                            case SOUTH:
+                                line(column, row + CELL_SIZE, column + CELL_SIZE, row + CELL_SIZE);
+                                break;
+                            case WAST:
+                                line(column, row, column, row + CELL_SIZE);
+                                break;
+                        }
+                    }
+                }
+                popMatrix();
+            }
+        }
+    }
+
+    private void drawMazeCell() {
+        for (int column = 0; column < MAZE_SIZE; column++) {
+            for (int row = 0; row < MAZE_SIZE; row++) {
+                pushMatrix();
+
+                Cell cell = MAZE_DATA.get(column, row);
 
                 if (cell == currentCell) {
                     fill(0, 0, 200);
                 } else {
                     assert cell != null;
-                    if (cell.isVoid()) {
-                        fill(0);
-                    } else if (cell.isSolutionPath) {
+                    if (cell.isSolutionPath) {
                         fill(200, 0, 0);
                     } else if (cell.isVisit) {
                         fill(0, 200, 0);
-                    } else {
+                    } else if (cell.isExplor) {
                         fill(240);
+                    } else {
+                        fill(128);
                     }
                 }
                 noStroke();
-                translate(column * boxSize, row * boxSize);
-                rect(column, row, boxSize, boxSize);
+                translate(column * CELL_SIZE, row * CELL_SIZE);
+                rect(column, row, CELL_SIZE, CELL_SIZE);
 
                 popMatrix();
             }
         }
-
-
-        for (int column = 0; column < mazeSizeIndex; column++) {
-            for (int row = 0; row < mazeSizeIndex; row++) {
-                pushMatrix();
-
-                Cell cell = mazeData.get(column, row);
-
-                translate(column * boxSize, row * boxSize);
-                strokeWeight(10);
-                assert cell != null;
-                if (cell.N == Result.WALL) {
-                    stroke(0);
-                    line(column, row, column + boxSize, row);
-                }
-                if (cell.S == Result.WALL) {
-                    stroke(0);
-                    line(column, row + boxSize, column + boxSize, row + boxSize);
-                }
-                if (cell.E == Result.WALL) {
-                    stroke(0);
-                    line(column + boxSize, row, column + boxSize, row + boxSize);
-                }
-                if (cell.W == Result.WALL) {
-                    stroke(0);
-                    line(column, row, column, row + boxSize);
-                }
-
-                popMatrix();
-            }
-        }
-
-        popMatrix();
     }
 
     public void controlEvent(ControlEvent theEvent) {
         println(theEvent.getController().getName());
     }
 
+    public static SerialEventBus serialEventBus;
+
     MazeExploreController mazeExploreController;
     MazeSolveController mazeSolveController;
 
     public void explore(int theValue) {
         serialEventBus = new SerialEventBus("COM8", 115200);
-        mazeExploreController = new MazeExploreController();
+        mazeExploreController = new MazeExploreController(MAZE_DATA.get(COLUMN_INIT, ROW_INIT));
     }
 
     public void solve(int theValue) {
         mazeExploreController.stopThread();
-        mazeSolveController = new MazeSolveController();
+        mazeSolveController = new MazeSolveController(MAZE_DATA.get(COLUMN_INIT, ROW_INIT));
     }
 }

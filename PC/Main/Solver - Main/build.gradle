@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'edu.sc.seis.launch4j' version '2.4.6'
+    id 'application'
 }
 
 group 'com.fram18'
@@ -7,6 +9,22 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+launch4j {
+    mainClassName = 'Main'
+    headerType = "gui"
+
+    headerType = "gui"
+    stayAlive = false
+
+    outfile = project.name + ".exe"
+    outputDir = project.name + "x64"
+    libraryDir = "lib"
+
+    //bundledJre64Bit = true
+    //bundledJrePath = "jdk"
+    //jdkPreference = "jdkOnly"
 }
 
 dependencies {

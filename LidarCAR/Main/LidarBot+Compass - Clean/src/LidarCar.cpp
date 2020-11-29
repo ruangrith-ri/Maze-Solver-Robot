@@ -325,7 +325,7 @@ void LidarCar::MapDisplay(void) {
   }
 
   //得到雷达数据
-  // GetData();
+  GetData();
 }
 
 //！摄像头模块
