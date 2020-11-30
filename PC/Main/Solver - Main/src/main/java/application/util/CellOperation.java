@@ -5,7 +5,6 @@ import application.data.Direction;
 import application.data.Result;
 
 import java.text.MessageFormat;
-import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

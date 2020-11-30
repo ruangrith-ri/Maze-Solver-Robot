@@ -40,6 +40,9 @@ public class MazeSolveController extends Thread {
     }
 
     void setup() {
+        queueVisualizer = pendingComputeCell;
+        stackVisualizer = robotCommandCellStack;
+
         clearOldVisit();
         pendingComputeCell.add(startCell);
 
@@ -93,7 +96,7 @@ public class MazeSolveController extends Thread {
     boolean incomingData() {
         String n = serialEventBus.read("wallN");
 
-        return  (! n.equals("")) ;
+        return (! n.equals(""));
     }
 
     void invertState() {
@@ -132,9 +135,13 @@ public class MazeSolveController extends Thread {
                 Cell cell = getCellFromDirection(currentCell, direction);
 
                 assert cell != null;
-                if (! cell.isVisit) {
-                    cell.passMovementFormLastCell = direction.flip();
-                    pendingComputeCell.add(cell);
+                try {
+                    if (! cell.isVisit) {
+                        cell.passMovementFormLastCell = direction.flip();
+                        pendingComputeCell.add(cell);
+                    }
+                }catch (NullPointerException e){
+                    System.out.println("NPE");
                 }
             }
         }

@@ -17,8 +17,6 @@ m
 =src/main/java/application/controller/MazeSolveController.java,9\2\9222a8fa8f9e290bafffbb10ebc6197c2305c5cd
 o
 ?src/main/java/application/controller/MazeExploreController.java,0\b\0b763a449926cb6198aa095ae546fb1145162d8c
-Y
-)src/test/java/MazeSolveControllerOLD.java,7\b\7b0808bdab94566ac799d598852504cca8c5d1ad
 ]
 -src/main/java/application/data/Direction.java,9\9\997abb8ed932df3902abf2d7df2cc596b153a7ed
 X

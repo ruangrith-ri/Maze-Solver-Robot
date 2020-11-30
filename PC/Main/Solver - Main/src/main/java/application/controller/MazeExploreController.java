@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.applet.MainApplet;
 import application.data.Cell;
 import application.data.Direction;
 import application.data.Result;
@@ -36,6 +37,7 @@ public class MazeExploreController extends Thread {
 
     @Override
     public void run() {
+        setup();
         while (runnerFlag) {
             loop();
             try {
@@ -43,6 +45,10 @@ public class MazeExploreController extends Thread {
             } catch (InterruptedException ignore) {
             }
         }
+    }
+
+    void setup(){
+        stackVisualizer = reverseCellExploreComputeStack;
     }
 
     boolean firstRun = true;
@@ -78,12 +84,12 @@ public class MazeExploreController extends Thread {
                     logger.log(Level.INFO, " Direction : {0}", nextMovement.toStringCommand());
                 }
             }
-        } catch (
-                Exception e) {
+        } catch (Exception e) {
             stopThread();
             logger.log(Level.INFO, "Finish " + e);
-        }
 
+            mazeSolveController = new MazeSolveController(startCell);
+        }
     }
 
     boolean receiveAndSetData(Cell cell) {

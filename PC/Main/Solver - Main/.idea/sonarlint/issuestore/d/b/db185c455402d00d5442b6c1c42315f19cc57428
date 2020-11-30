@@ -1,74 +1,73 @@
 
-r
-java:S1104 "UMake finalCell a static final constant or non-public and provide accessors if needed.(É²ÆĞ8Âàë—à.
-c
-java:S2184<"ACast one of the operands of this addition operation to a "float".(Ù¢£Öıÿÿÿÿ8ˆ¨à.
-d
-java:S2184s"GCast one of the operands of this multiplication operation to a "float".(ÿâŠ˜8İè–Äà.
-d
-java:S2184†"ACast one of the operands of this addition operation to a "float".(××‘€şÿÿÿÿ8İè–Äà.
-|
-java:S1104"ZMake serialEventBus a static final constant or non-public and provide accessors if needed.(ÊÒô…ıÿÿÿÿ8ØÏ†‰à.
-{
-java:S1104$"YMake mazeSizeIndex a static final constant or non-public and provide accessors if needed.(¿é‹’ıÿÿÿÿ8Âàë—à.
-d
-java:S2184Š"ACast one of the operands of this addition operation to a "float".(Á¢³¿üÿÿÿÿ8İè–Äà.
-d
-java:S2184Š"ACast one of the operands of this addition operation to a "float".(Á¢³¿üÿÿÿÿ8İè–Äà.
-V
-java:S1444"4Make this "public static serialEventBus" field final(ÊÒô…ıÿÿÿÿ8ØÏ†‰à.
-_
-java:S2184"ACast one of the operands of this addition operation to a "float".(Ëüƒ8İè–Äà.
-M
-java:S1444%"0Make this "public static columnInit" field final(ëÚÿÖ8Âàë—à.
-U
-java:S1444$"3Make this "public static mazeSizeIndex" field final(¿é‹’ıÿÿÿÿ8Âàë—à.
-s
-java:S1104%"VMake columnInit a static final constant or non-public and provide accessors if needed.(ëÚÿÖ8Âàë—à.
-_
-java:S2184"ACast one of the operands of this addition operation to a "float".(Ëüƒ8İè–Äà.
-p
-java:S1104&"SMake rowInit a static final constant or non-public and provide accessors if needed.(Åî¸—8Âàë—à.
-v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ïÕş‰8µ·²«à.
-L
-java:S1444 "/Make this "public static finalCell" field final(É²ÆĞ8Âàë—à.
-e
-java:S2184"GCast one of the operands of this multiplication operation to a "float".(ÿâŠ˜8İè–Äà.
-d
-java:S2184Š"ACast one of the operands of this addition operation to a "float".(Á¢³¿üÿÿÿÿ8İè–Äà.
-y
-java:S1104"WMake currentCell a static final constant or non-public and provide accessors if needed.(‚¦ÊÎÿÿÿÿÿ8î»—à.
-s
-java:S1104"VMake processing a static final constant or non-public and provide accessors if needed.(äÅ‰Ñ8ÈŸÅ„à.
-_
-java:S2184"ACast one of the operands of this addition operation to a "float".(Ëüƒ8İè–Äà.
-L
-java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8Ô•÷Äà.
-S
-java:S2696I"6Make the enclosing method "static" or remove this set.(©âÄ8Ş²²à.
+X
+java:S2696I"6Make the enclosing method "static" or remove this set.(¹şÒçıÿÿÿÿ8Éæé¡á.
+W
+java:S1444æ"4Make this "public static serialEventBus" field final(ÊÒô…ıÿÿÿÿ8„£àÁá.
+Y
+java:S1444è";Make this "public static mazeExploreController" field final(óÅºî8Ñ¡Áá.
 R
-java:S1172¨"/Remove this unused method parameter "theValue".( ²…Ìıÿÿÿÿ8İè–Äà.
-P
-java:S1444".Make this "public static mazeData" field final(Íâ©’ÿÿÿÿÿ8‰½‘†à.
-P
-java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8¤ëôÄà.
-M
-java:S1172£"/Remove this unused method parameter "theValue".(Ÿà»İ8İè–Äà.
-J
-java:S1444&"-Make this "public static rowInit" field final(Åî¸—8Âàë—à.
-S
-java:S1444"1Make this "public static currentCell" field final(‚¦ÊÎÿÿÿÿÿ8î»—à.
-d
-java:S2184s"GCast one of the operands of this multiplication operation to a "float".(ÿâŠ˜8İè–Äà.
-_
-java:S2184’"ACast one of the operands of this addition operation to a "float".(õêàä8İè–Äà.
-v
-java:S1104"TMake mazeData a static final constant or non-public and provide accessors if needed.(Íâ©’ÿÿÿÿÿ8‰½‘†à.
-o
-java:S3776V"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(ÄÿÍ¤8İè–Äà.
+java:S1172ğ"/Remove this unused method parameter "theValue".( ²…Ìıÿÿÿÿ8„£àÁá.
+?
+java:S2386$"Make this member "protected".(‹ª¯úÿÿÿÿ8ë–Àá.
 T
-java:S2696¤"6Make the enclosing method "static" or remove this set.(ùë„8İè–Äà.
-e
-java:S2184"GCast one of the operands of this multiplication operation to a "float".(ÿâŠ˜8İè–Äà.
-]
-java:S2184@"ACast one of the operands of this addition operation to a "float".(€ü˜k8ã¤æ±à.
+java:S2696í"6Make the enclosing method "static" or remove this set.(¬ØÅŸ8„£àÁá.
+L
+java:S1444!"/Make this "public static finalCell" field final(É²ÆĞ8 ­Ş¡á.
+d
+java:S2184±"ACast one of the operands of this addition operation to a "float".(˜¸—£ıÿÿÿÿ8„£àÁá.
+}
+java:S1104æ"ZMake serialEventBus a static final constant or non-public and provide accessors if needed.(ÊÒô…ıÿÿÿÿ8„£àÁá.
+_
+java:S2184´"ACast one of the operands of this addition operation to a "float".(ÌŠØ½8„£àÁá.
+
+java:S1104è"aMake mazeExploreController a static final constant or non-public and provide accessors if needed.(óÅºî8Ñ¡Áá.
+d
+java:S2184º"ACast one of the operands of this addition operation to a "float".(‡–“Òüÿÿÿÿ8„£àÁá.
+j
+java:S2184§"GCast one of the operands of this multiplication operation to a "float".(›àºéşÿÿÿÿ8„£àÁá.
+_
+java:S2184´"ACast one of the operands of this addition operation to a "float".(ÌŠØ½8„£àÁá.
+j
+java:S2184Ú"GCast one of the operands of this multiplication operation to a "float".(›àºéşÿÿÿÿ8„£àÁá.
+_
+java:S2184´"ACast one of the operands of this addition operation to a "float".(ÌŠØ½8„£àÁá.
+j
+java:S2184Ú"GCast one of the operands of this multiplication operation to a "float".(›àºéşÿÿÿÿ8„£àÁá.
+s
+java:S1104"VMake processing a static final constant or non-public and provide accessors if needed.(äÅ‰Ñ8ÈŸÅ„à.
+:
+java:S2386#"Make this member "protected".(•ûıó8ë–Àá.
+T
+java:S2696ì"6Make the enclosing method "static" or remove this set.(ùë„8Ñ¡Áá.
+x
+java:S1104#"[Make queueVisualizer a static final constant or non-public and provide accessors if needed.(•ûıó8ë–Àá.
+S
+java:S1444 "1Make this "public static currentCell" field final(‚¦ÊÎÿÿÿÿÿ8 ­Ş¡á.
+‚
+java:S1104é"_Make mazeSolveController a static final constant or non-public and provide accessors if needed.(÷ÙÍÉüÿÿÿÿ8„£àÁá.
+d
+java:S2184·"ACast one of the operands of this addition operation to a "float".(×‚¢Ùşÿÿÿÿ8„£àÁá.
+j
+java:S2184§"GCast one of the operands of this multiplication operation to a "float".(›àºéşÿÿÿÿ8„£àÁá.
+W
+java:S1444$"5Make this "public static stackVisualizer" field final(‹ª¯úÿÿÿÿ8ë–Àá.
+M
+java:S1172ë"/Remove this unused method parameter "theValue".(Ÿà»İ8„£àÁá.
+d
+java:S2184·"ACast one of the operands of this addition operation to a "float".(×‚¢Ùşÿÿÿÿ8„£àÁá.
+}
+java:S1104$"[Make stackVisualizer a static final constant or non-public and provide accessors if needed.(‹ª¯úÿÿÿÿ8ë–Àá.
+d
+java:S2184p"GCast one of the operands of this multiplication operation to a "float".(£³8·áÂÂá.
+T
+java:S2696ñ"6Make the enclosing method "static" or remove this set.(°ÉÑÔ8„£àÁá.
+r
+java:S1104!"UMake finalCell a static final constant or non-public and provide accessors if needed.(É²ÆĞ8 ­Ş¡á.
+d
+java:S2184·"ACast one of the operands of this addition operation to a "float".(×‚¢Ùşÿÿÿÿ8„£àÁá.
+\
+java:S1444é"9Make this "public static mazeSolveController" field final(÷ÙÍÉüÿÿÿÿ8„£àÁá.
+y
+java:S1104 "WMake currentCell a static final constant or non-public and provide accessors if needed.(‚¦ÊÎÿÿÿÿÿ8 ­Ş¡á.
+R
+java:S1444#"5Make this "public static queueVisualizer" field final(•ûıó8ë–Àá.

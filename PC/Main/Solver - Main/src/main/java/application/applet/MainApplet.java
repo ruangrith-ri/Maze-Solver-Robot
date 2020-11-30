@@ -12,6 +12,11 @@ import controlP5.ControlEvent;
 import controlP5.ControlP5;
 import processing.core.PApplet;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class MainApplet extends PApplet {
 
     public PApplet processing;
@@ -20,16 +25,19 @@ public class MainApplet extends PApplet {
 
     ControlP5 controlP5;
 
-    public static final int ANIMATION_DELAY = 200;
+    public static final int ANIMATION_DELAY = 300;
 
     public static final Table<Integer, Integer, Cell> MAZE_DATA = HashBasedTable.create();
 
     public static Cell currentCell;
     public static Cell finalCell;
 
+    public static Queue<Cell> queueVisualizer = new LinkedList<>();
+    public static Deque<Cell> stackVisualizer = new ArrayDeque<>();
+
     /*-------------------------------------------------------------------------------------------*/
 
-    private static final int MAZE_SIZE = 4;
+    private static final int MAZE_SIZE = 10;
     private static final int COLUMN_INIT =  /*mazeSizeIndex - 1*/0;
     private static final int ROW_INIT = /*mazeSizeIndex - 1*/0;
 
@@ -44,7 +52,7 @@ public class MainApplet extends PApplet {
 
     @Override
     public void settings() {
-        size(MAZE_DRAW_SIZE + 250, MAZE_DRAW_SIZE + 50);
+        size(MAZE_DRAW_SIZE + 500, MAZE_DRAW_SIZE + 50);
     }
 
     @Override
@@ -69,11 +77,11 @@ public class MainApplet extends PApplet {
         controlP5 = new ControlP5(this);
 
         controlP5.addButton("explore")
-                .setPosition(MAZE_DRAW_SIZE + 100f, 25)
+                .setPosition(MAZE_DRAW_SIZE + 350f, 25)
                 .setSize(100, 50);
 
         controlP5.addButton("solve")
-                .setPosition(MAZE_DRAW_SIZE + 100f, 100)
+                .setPosition(MAZE_DRAW_SIZE + 350f, 100)
                 .setSize(100, 50);
     }
 
@@ -87,6 +95,66 @@ public class MainApplet extends PApplet {
         drawMazeCell();
         drawMazeGridline();
 
+        stackVisualization();
+        queueVisualization();
+
+        popMatrix();
+    }
+
+    private void stackVisualization() {
+        pushMatrix();
+        pushStyle();
+
+        translate(MAZE_DRAW_SIZE + 50f, MAZE_DRAW_SIZE);
+        fill(0);
+        text("STACK", 30, 15);
+
+        translate(0, - 25 * stackVisualizer.size());
+
+        for (Cell cell : stackVisualizer) {
+
+            fill(255, 0, 0);
+            strokeWeight(2);
+            stroke(0);
+            rect(0, 0, 100, 25);
+
+            noStroke();
+            fill(0);
+            text("Col: " + cell.columnIndex, 5, 16);
+            text("Row: " + cell.rowIndex, 50, 16);
+
+            translate(0, 25);
+        }
+
+        popStyle();
+        popMatrix();
+    }
+
+    private void queueVisualization() {
+        pushMatrix();
+        pushStyle();
+
+        translate(MAZE_DRAW_SIZE + 175f, MAZE_DRAW_SIZE);
+        fill(0);
+        text("QUEUE", 30, 15);
+
+        translate(0, -25);
+
+        for (Cell cell : queueVisualizer) {
+
+            fill(0, 255, 0);
+            strokeWeight(2);
+            stroke(0);
+            rect(0, 0, 100, 25);
+
+            noStroke();
+            fill(0);
+            text("Col: " + cell.columnIndex, 5, 16);
+            text("Row: " + cell.rowIndex, 50, 16);
+
+            translate(0, - 25);
+        }
+        popStyle();
         popMatrix();
     }
 
@@ -161,8 +229,8 @@ public class MainApplet extends PApplet {
 
     public static SerialEventBus serialEventBus;
 
-    MazeExploreController mazeExploreController;
-    MazeSolveController mazeSolveController;
+    public static MazeExploreController mazeExploreController;
+    public static MazeSolveController mazeSolveController;
 
     public void explore(int theValue) {
         serialEventBus = new SerialEventBus("COM8", 115200);
@@ -170,7 +238,6 @@ public class MainApplet extends PApplet {
     }
 
     public void solve(int theValue) {
-        mazeExploreController.stopThread();
         mazeSolveController = new MazeSolveController(MAZE_DATA.get(COLUMN_INIT, ROW_INIT));
     }
 }

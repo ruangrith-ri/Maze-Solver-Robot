@@ -1,5 +1,6 @@
 
 ‹
-java:S1130b"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(ßó¦·øÿÿÿÿ8€™•¾à.
-s
-java:S11927"VDefine a constant instead of duplicating this literal "Exit in cell is : {0}" 4 times.(œšÿû8À¡ ¾à.
+java:S1130F"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(ßó¦·øÿÿÿÿ8€™•¾à.
+Z	java:S106A"9Replace this use of System.out or System.err by a logger.(”™Èôüÿÿÿÿ8¬éè¨á.
+t
+java:S3776""RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ð±Ó¿ýÿÿÿÿ8”Â¥¤á.

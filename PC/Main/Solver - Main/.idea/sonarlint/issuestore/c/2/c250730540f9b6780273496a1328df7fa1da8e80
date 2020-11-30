@@ -1,4 +1,2 @@
 
-_
-java:S1128	"=Remove this unused import 'java.util.NoSuchElementException'.(®“ÿéúÿÿÿÿ8ÇÑžˆà.
-Z	java:S106A"9Replace this use of System.out or System.err by a logger.(Å–´Æÿÿÿÿÿ8ÇÑžˆà.
+Z	java:S106?"9Replace this use of System.out or System.err by a logger.(Å–´Æÿÿÿÿÿ8ÇÑžˆà.
